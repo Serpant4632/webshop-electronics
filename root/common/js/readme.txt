@@ -1,0 +1,1 @@
+Platzhalterdatei für zukünftige JS dateien, die in index.html eingebunden werden
