@@ -3,4 +3,4 @@ This is our study project.
 
 Icon Pack used: https://fontawesome.com/icons
 
-https://webshop-electronics.vercel.app/
+vercel online view: https://webshop-electronics.vercel.app/
