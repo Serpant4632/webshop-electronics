@@ -28,7 +28,7 @@ window.onload = function () {
         console.log(e);
         console.log(favoriteWordInput.value);
         const validString = /^([a-z]|[A-Z])*$/.test(favoriteWordInput.value);
-        if(!validString) {
+        if (!validString) {
             favoriteWordContainer.classList.add('invalid');
         } else {
             favoriteWordContainer.classList.remove('invalid');
