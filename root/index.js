@@ -40,7 +40,3 @@ function showFeedbackPanel() {
     console.log('feedback panel clicked');
     alert('feedback panel clicked!');
 }
-
-
-
-chfcgfcgcxgx
