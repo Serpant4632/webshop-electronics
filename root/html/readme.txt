@@ -1,1 +1,1 @@
-Platzhalterdatei für zukünftige html dateien, die in index.html eingebunden werden
+Platzhalterdatei für zukünftige html dateien, die in index.html eingebunden werden    
