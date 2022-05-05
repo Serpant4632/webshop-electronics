@@ -1,0 +1,22 @@
+{
+  "name": "webshop-electronics",
+  "version": "1.0.0",
+  "description": "This is our study project.",
+  "main": "root/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Serpant4632/webshop-electronics.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Serpant4632/webshop-electronics/issues"
+  },
+  "homepage": "https://github.com/Serpant4632/webshop-electronics#readme",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}
