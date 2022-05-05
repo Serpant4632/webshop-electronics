@@ -12,6 +12,9 @@ body {
     position: sticky;
     top: 0;
 }
+.color {
+    color: white;
+}
 
 .navigation a {
     color: #ffffff;
