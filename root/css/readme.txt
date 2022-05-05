@@ -1,1 +1,0 @@
-Platzhalterdatei für zukünftige css dateien, die in index.html eingebunden werden
