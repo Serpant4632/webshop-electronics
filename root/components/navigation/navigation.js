@@ -10,10 +10,13 @@ class Navigation {
                 this.navigateTo(e.target.id);
                 if (this.onClickCallback)
                     this.onClickCallback(e.target.id);
+                    console.log('a Tag clicked');
             })
             this.navigateTo('home');
             if (this.onClickCallback)
                 this.onClickCallback('home');
+                console.log('navigated to Home');
+            
         });
     }
 

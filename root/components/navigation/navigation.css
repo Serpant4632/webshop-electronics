@@ -1,5 +1,5 @@
-.navigation {
-    background-color: #333;
+nav.navigation {
+    background-color: rgb(142, 136, 136);
     position: sticky;
     top: 0;
     display: flex;
