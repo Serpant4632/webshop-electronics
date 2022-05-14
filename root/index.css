@@ -21,3 +21,9 @@ body > * {
   margin: 0px 10px;
   vertical-align: top;
 }
+
+#navigation {
+  background-color: #003E85;
+  padding: 0;
+}
+

@@ -1,19 +1,87 @@
-nav.navigation {
-    background-color: rgb(142, 136, 136);
+.navbar {
     position: sticky;
-    top: 0;
+    max-width: 1184px;
     display: flex;
+    background: linear-gradient(to right, #003E85, #206DB4, #003E85);
+    height: 100px;
+    margin: 0 auto;
+
 }
 
-.navigation a {
-    color: #ffffff;
-    padding: 14px 16px;
-    text-decoration: none;
-    display: block;
-    float: left;
+.flex-container {
+    display: flex;
+    flex: 0 0 100%;
 }
 
-.navigation a:hover {
-    background-color: #666;
-    /* border: 1px solid #333; */
+.navbar ul li {
+    display: inline-block;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+#searchbar-form {
+    background-color: white;
+    width: 350px;
+    height: 42px;
+    border-radius: 15px;
+    padding: 3px 10px 10px 10px;
+    position: relative;
+}
+
+.center-div {
+    vertical-align: middle;
+}
+
+#searchbar-form input {
+    border: none;
+    border-radius: inherit;
+    position: inherit;
+    vertical-align: inherit;
+    width: 290px;
+    padding: 0;
+}
+
+#searchbar-form input:focus {
+    outline: none;
+}
+
+#searchbar-form button {
+    border-radius: inherit;
+    background-color: white;
+    border: none;
+    margin: 0;
+    position: inherit;
+    width: auto;
+    vertical-align: inherit;
+    width: 25px;
+}
+
+ion-icon {
+    font-size: 2rem;
+    color: #0499DB;
+    
+}
+
+button#search-button {
+    background-color: transparent;
+}
+
+.flex-1 {
+    flex: 1;
+}
+.flex-2 {
+    flex: 2;
+}
+.flex-3 {
+    flex: 3;
+}
+
+.flex-5 {
+    flex: 5;
+}
+
+@media only screen and (max-width: 768px) {
+    
 }
