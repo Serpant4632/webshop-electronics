@@ -21,6 +21,10 @@
     margin: 0;
 }
 
+.margin-auto {
+    margin: auto;
+}
+
 #searchbar-form {
     background-color: white;
     width: 350px;
@@ -68,6 +72,14 @@ button#search-button {
     background-color: transparent;
 }
 
+ul.navbar-right-elements {
+display: flex;
+}
+
+.float-right {
+    float: right;
+}
+
 .flex-1 {
     flex: 1;
 }
@@ -81,6 +93,7 @@ button#search-button {
 .flex-5 {
     flex: 5;
 }
+
 
 @media only screen and (max-width: 768px) {
     

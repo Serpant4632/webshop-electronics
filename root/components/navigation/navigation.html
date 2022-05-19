@@ -1,18 +1,17 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 
 <div class="navbar" >
     <div class="flex-container">
         <div class="flex-1"></div>
         <div class="flex-2">
-            <img src="../../../resources/icons/Logo.svg" style="width:10%;height:100%;"></img>
+            <img src="../../../resources/icons/Logo.svg" style="width:40%;height:100%;"></img>
         </div>
 
-        <div class="flex-5">
-            <ul class="no-margin">
-                <li>
+        <div class="flex-5 margin-auto">
+            <ul class="navbar-right-elements no-margin">
+                <li class="flex-1">
                     <form action="/search" method="get" id="searchbar-form">
                         <div class="center-div">
-
                             <input type="search" name="sSearch" class="" autocomplete="off" autocapitalize="off"
                                 placeholder="Suchbegriff oder Produkt eingeben..." maxlength="60" value="">
                             <button type="submit" id="search-button">
@@ -21,6 +20,44 @@
                         </div>
                     </form>
                 </li>
+                <li class="nav-item flex-2">
+                    <a class="nav-link" href="javascript:void(0)">Link</a>
+                </li>
+                <li class="nav-item flex-2">
+                    <a class="nav-link" href="javascript:void(0)">Link</a>
+                </li>
+                <li class="nav-item flex-2">
+                    <a class="nav-link" href="javascript:void(0)">Link</a>
+                </li>
+            </ul>
+        </div>
+        <div class="flex-1"></div>
+
+    </div>
+</div> -->
+
+<!DOCTYPE html>
+
+<div class="navbar" >
+    <div class="flex-container">
+        <div class="flex-1"></div>
+        <div class="flex-2">
+            <img src="../../../resources/icons/Logo.svg" style="width:40%;height:100%;"></img>
+        </div>
+        <div class="flex-2 margin-auto">
+
+            <form action="/search" method="get" id="searchbar-form">
+                <div class="center-div">
+                    <input type="search" name="sSearch" class="" autocomplete="off" autocapitalize="off"
+                    placeholder="Suchbegriff oder Produkt eingeben..." maxlength="60" value="">
+                    <button type="submit" id="search-button">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="flex-3 margin-auto">
+            <ul class="navbar-right-elements no-margin float-right">
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)">Link</a>
                 </li>
