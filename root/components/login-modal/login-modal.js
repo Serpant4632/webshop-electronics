@@ -6,8 +6,7 @@ class LoginModal {
 
     render(parentSelector) {
         $(parentSelector).load('./components/login-modal/login-modal.html', () => {
-            console.log($('#loginModal'));
-
+            console.log(parentSelector);
             const myModalAlternative = new bootstrap.Modal('#loginModal', {});
             myModalAlternative.show();
 

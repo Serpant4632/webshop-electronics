@@ -21,15 +21,13 @@ class Navigation {
             $('#my-account-sign-in-btn').on('click', (e) => {
                 console.log(this);
                 const loginModal = new LoginModal(this.onClickCallback);
-                loginModal.render(this);
-                setTimeout(() => {
-                }, 2000);
+                loginModal.render(parentSelector);
             });
 
             // open Register Modal
             $('#my-account-register-btn').on('click', (e) => {
                 const registerModal = new RegisterModal(this.onClickCallback);
-                registerModal.render(this);
+                registerModal.render(parentSelector);
                 
             });
         });
@@ -38,15 +36,6 @@ class Navigation {
 }
 
 
-function openRegisterModel() {
-
-}
-
-function loginButtonPressed() {
-    
-    const email = $('#form-email').val();
-    
-}
 
 // function formIsCorrect() {
 //     const email = $('#form-email').val();
