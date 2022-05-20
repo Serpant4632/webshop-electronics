@@ -5,6 +5,7 @@ $(() => {
     const navigation = new Navigation(navigatePage);
     navigation.render('#navigation');
 
+
 });
 
 function navigatePage(id) {
