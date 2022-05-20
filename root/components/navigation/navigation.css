@@ -59,14 +59,15 @@ a.nav-link {
     width: 350px;
     height: 42px;
     border-radius: 15px;
-    padding: 9px 10px 10px 20px;
+    padding: 5px 10px 10px 20px;
     position: relative;
     font-size: 0.85em;
 }
 
-.center-div {
-    vertical-align: middle;
-}
+[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
 
 #searchbar-form input {
     border: none;
@@ -76,6 +77,11 @@ a.nav-link {
     width: 290px;
     padding: 0;
 
+}
+
+.bi-search {
+    color: #0499DB;
+    font-size: 1.2rem;
 }
 
 #searchbar-form input:focus {
