@@ -114,6 +114,12 @@ ul.navbar-right-elements {
     display: flex;
 }
 
+div #btn-sign-in {
+    width: 418px;
+}
+
+
+
 .float-right {
     float: right;
 }

@@ -1,41 +1,3 @@
-<!-- <!DOCTYPE html>
-
-<div class="navbar" >
-    <div class="flex-container">
-        <div class="flex-1"></div>
-        <div class="flex-2">
-            <img src="../../../resources/icons/Logo.svg" style="width:40%;height:100%;"></img>
-        </div>
-
-        <div class="flex-5 margin-auto">
-            <ul class="navbar-right-elements no-margin">
-                <li class="flex-1">
-                    <form action="/search" method="get" id="searchbar-form">
-                        <div class="center-div">
-                            <input type="search" name="sSearch" class="" autocomplete="off" autocapitalize="off"
-                                placeholder="Suchbegriff oder Produkt eingeben..." maxlength="60" value="">
-                            <button type="submit" id="search-button">
-                                <ion-icon name="search-outline"></ion-icon>
-                            </button>
-                        </div>
-                    </form>
-                </li>
-                <li class="nav-item flex-2">
-                    <a class="nav-link" href="javascript:void(0)">Link</a>
-                </li>
-                <li class="nav-item flex-2">
-                    <a class="nav-link" href="javascript:void(0)">Link</a>
-                </li>
-                <li class="nav-item flex-2">
-                    <a class="nav-link" href="javascript:void(0)">Link</a>
-                </li>
-            </ul>
-        </div>
-        <div class="flex-1"></div>
-
-    </div>
-</div> -->
-
 <!DOCTYPE html>
 
 <div class="left-navbar-container">
@@ -63,21 +25,26 @@
             <ul class="navbar-right-elements no-margin float-right">
                 <li class="nav-item">
                     <a class="nav-link" href="javascript:void(0)">
-                        <i class="bi bi-heart"></i>
-                        <span>Merkzettel</span>
+                        <div id="wish-list">
+                            <i class="bi bi-heart"></i>
+                            <span>Merkzettel</span>
+                        </div>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">
+                    <a class="nav-link" href="javascript:void(0)" onclick="openLoginModal()">
+                        <div id="my-account">
                             <i class="bi bi-person"></i>
-                        <span>Mein Konto</span>
+                            <span>Mein Konto</span>
+                        </div>
                     </a>
                 </li>
                 <li class="nav-item margin-auto">
-
                     <a class="nav-link" href="javascript:void(0)">
-                        <i class="bi bi-cart3"></i>
-                        <span>0,00€</span>
+                        <div id="shopping-cart">
+                            <i class="bi bi-cart3"></i>
+                            <span>0,00€</span>
+                        </div>
                     </a>
 
                 </li>
@@ -90,17 +57,46 @@
 <div class="right-navbar-container">
 </div>
 
-<!-- Example split danger button -->
-<div class="btn-group">
-    <button type="button" class="btn btn-danger">Action</button>
-    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="sr-only">Toggle Dropdown</span>
-    </button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Anmelden</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="px-4 py-3">
+                    <div class="mb-3">
+                        <label for="exampleDropdownFormEmail1" class="form-label">E-Mail-Adresse</label>
+                        <input type="email" class="form-control" id="exampleDropdownFormEmail1"
+                            placeholder="email@example.com" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleDropdownFormPassword1" class="form-label">Passwort</label>
+                        <input type="password" class="form-control" id="exampleDropdownFormPassword1"
+                            placeholder="Passwort" />
+                    </div>
+                    <div id="container-remember-me" class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="dropdownCheck" />
+                            <label class="form-check-label" for="dropdownCheck">
+                                Angemeldet bleiben
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="btn-sign-in" type="submit" class="btn btn-primary">Anmelden</button>
+                    </div>
+                </form>
+                <div class="dropdown-divider"></div>
+                <div style="text-align: center;">
+                    <a class="dropdown-item text-primary" style="margin: 10px 0 10px;" href="#">Neu hier? Jetzt
+                        registrieren!</a>
+                    <a class="dropdown-item text-primary" style="margin: 10px 0 10px;" href="#">Passwort vergessen?</a>
+                </div>
+            </div>
+
+        </div>
     </div>
-  </div>
+</div>
