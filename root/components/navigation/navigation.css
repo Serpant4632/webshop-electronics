@@ -1,6 +1,5 @@
 .left-navbar-container {
     background-color: #0155a3;
-    margin-top: 0;
     height: 100px;
     float: left;
     width: 50%;
@@ -12,21 +11,19 @@
 
 .right-navbar-container {
     background-color: #003e85;
-    margin-top: 0;
-    top: 0;
-    right: 0;
     height: 100px;
     float: right;
     width: 50%;
+    top: 0;
+    right: 0;
     z-index: 1;
     position: absolute;
-
 }
 
 .navbar {
     position: sticky;
-    max-width: 1400px;
     display: flex;
+    max-width: 1400px;
     background: linear-gradient(to right, #0155a3, #206DB4, #003e85);
     height: 100px;
     margin: 0 auto;
@@ -64,7 +61,7 @@ a.nav-link {
     border-radius: 15px;
     padding: 9px 10px 10px 20px;
     position: relative;
-    font-size: 0.8em;
+    font-size: 0.85em;
 }
 
 .center-div {
@@ -78,6 +75,7 @@ a.nav-link {
     vertical-align: inherit;
     width: 290px;
     padding: 0;
+
 }
 
 #searchbar-form input:focus {
@@ -95,15 +93,12 @@ a.nav-link {
     width: 25px;
 }
 
-ion-icon {
+.nav-link i {
     font-size: 1.5em;
     color: #0499DB;
     display: block;
     margin: auto;
-}
-
-ion-icon#shopping-cart {
-    margin-left: 0;
+    padding-left: calc(50% - 12px);
 }
 
 span {
