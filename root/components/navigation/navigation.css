@@ -1,11 +1,36 @@
+.left-navbar-container {
+    background-color: #0155a3;
+    margin-top: 0;
+    height: 100px;
+    float: left;
+    width: 50%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    position: absolute;
+}
+
+.right-navbar-container {
+    background-color: #003e85;
+    margin-top: 0;
+    top: 0;
+    right: 0;
+    height: 100px;
+    float: right;
+    width: 50%;
+    z-index: 1;
+    position: absolute;
+
+}
+
 .navbar {
     position: sticky;
     max-width: 1400px;
     display: flex;
-    background: linear-gradient(to right, #003E85, #206DB4, #003E85);
+    background: linear-gradient(to right, #0155a3, #206DB4, #003e85);
     height: 100px;
     margin: 0 auto;
-
+    z-index: 100;
 }
 
 .flex-container {

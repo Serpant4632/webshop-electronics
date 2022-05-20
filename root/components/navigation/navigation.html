@@ -38,7 +38,10 @@
 
 <!DOCTYPE html>
 
-<div class="navbar" >
+<div class="left-navbar-container">
+</div>
+
+<div class="navbar">
     <div class="flex-container">
 
         <div class="flex-2">
@@ -49,7 +52,7 @@
             <form action="/search" method="get" id="searchbar-form">
                 <div class="center-div">
                     <input type="search" name="sSearch" class="" autocomplete="off" autocapitalize="off"
-                    placeholder="Suchbegriff oder Produkt eingeben..." maxlength="60" value="">
+                        placeholder="Suchbegriff oder Produkt eingeben..." maxlength="60" value="">
                     <button type="submit" id="search-button">
                         <ion-icon name="search-outline"></ion-icon>
                     </button>
@@ -72,10 +75,10 @@
                 </li>
                 <li class="nav-item margin-auto">
 
-                        <a class="nav-link" href="javascript:void(0)">
-                            <ion-icon id="shopping-cart" name="cart-outline"></ion-icon>
-                            <span>0,00€</span>
-                        </a>
+                    <a class="nav-link" href="javascript:void(0)">
+                        <ion-icon id="shopping-cart" name="cart-outline"></ion-icon>
+                        <span>0,00€</span>
+                    </a>
 
                 </li>
             </ul>
@@ -83,4 +86,6 @@
 
 
     </div>
+</div>
+<div class="right-navbar-container">
 </div>
