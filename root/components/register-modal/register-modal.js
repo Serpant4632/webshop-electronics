@@ -1,15 +1,17 @@
-class LoginModal {
+class RegisterModal {
     onClickCallback;
     constructor(onClick) {
         this.onClickCallback = onClick;
     }
 
     render(parentSelector) {
-        $(parentSelector).load('./components/login-modal/login-modal.html', () => {
-            console.log($('#loginModal'));
-
-            const myModalAlternative = new bootstrap.Modal('#loginModal', {});
+        $(parentSelector).load('./components/register-modal/register-modal.html', () => {
+            console.log($('.modal.fade'));
+            const myModalAlternative = new bootstrap.Modal('#registerModal', {});
             myModalAlternative.show();
+            setTimeout(() => {
+            
+            }, 2000);
 
 
             // $('.nav-item').on('click', (e) => {

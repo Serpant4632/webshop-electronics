@@ -22,7 +22,7 @@ function navigatePage(id) {
 }
 
 function registerComponents() {
-    const components = ['navigation', 'loading', 'login-modal'];
+    const components = ['navigation', 'loading', 'login-modal', 'register-modal'];
     const links = components.map((c) => $(`<script src="components/${c}/${c}.js"></script>`));
     const stylesheets = components.map((c) => $(`<link rel="stylesheet" href="components/${c}/${c}.css">`));
     $('head').prepend(links, stylesheets);

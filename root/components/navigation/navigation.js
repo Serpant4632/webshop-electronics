@@ -17,23 +17,26 @@ class Navigation {
             //     this.onClickCallback('home');
 
 
+            // open Sign-In Modal
+            $('#my-account-sign-in-btn').on('click', (e) => {
+                console.log(this);
+                const loginModal = new LoginModal(this.onClickCallback);
+                loginModal.render(this);
+                setTimeout(() => {
+                }, 2000);
+            });
+
+            // open Register Modal
+            $('#my-account-register-btn').on('click', (e) => {
+                const registerModal = new RegisterModal(this.onClickCallback);
+                registerModal.render(this);
+                
+            });
         });
     }
 
-    // navigateTo(id) {
-    //     $('.navbar a').removeClass('active');
-    //     $(`.navbar a#${id}`).addClass('active');
-    // }
-
 }
 
-function openLoginModal() {
-    
-    const myModalAlternative = new bootstrap.Modal('#loginModal', {});
-    myModalAlternative.show();
-
-
-}
 
 function openRegisterModel() {
 
