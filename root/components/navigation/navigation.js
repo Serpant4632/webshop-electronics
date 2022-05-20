@@ -21,13 +21,13 @@ class Navigation {
             $('#my-account-sign-in-btn').on('click', (e) => {
                 console.log(this);
                 const loginModal = new LoginModal(this.onClickCallback);
-                loginModal.render(parentSelector);
+                loginModal.render($('#modal-container'));
             });
 
             // open Register Modal
             $('#my-account-register-btn').on('click', (e) => {
                 const registerModal = new RegisterModal(this.onClickCallback);
-                registerModal.render(parentSelector);
+                registerModal.render($('#modal-container'));
                 
             });
         });
