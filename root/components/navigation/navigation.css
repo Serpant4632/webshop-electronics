@@ -150,5 +150,18 @@ div #btn-sign-in {
     text-align: center;
 }
 
+.dropdown-menu {
+
+}
+
+.sign-in-buttons button {
+    height: 40px; 
+    width: 150px;
+}
+
+.sign-in-buttons {
+    margin: 8px 25px;
+}
+
 
 @media only screen and (max-width: 768px) {}

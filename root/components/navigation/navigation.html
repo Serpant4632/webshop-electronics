@@ -6,7 +6,7 @@
 <div class="navbar">
     <div class="flex-container">
         <div class="flex-2">
-            <img src="../../../resources/icons/Logo.svg" style="width:100px;height:100%;"></img>
+            <img class="nav-item" id="home" src="../../../resources/icons/Logo.svg" style="width:100px;height:100%;"></img>
         </div>
         <div class="flex-3 margin-auto" style="padding-left: 100px;">
 
@@ -20,27 +20,45 @@
                 </div>
             </form>
         </div>
-        <div class="flex-2 margin-auto" >
+        <div class="flex-2 margin-auto">
             <ul class="navbar-right-elements no-margin float-right">
-                <li class="nav-item">
-                    <div id="wish-list">
-                        <a class="nav-link" href="javascript:void(0)">
+                <li>
+                    <div>
+                        <a class="nav-item nav-link" id="wishList" href="javascript:void(0)">
                             <i class="bi bi-heart"></i>
                             <span>Merkzettel</span>
                         </a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <div id="my-account">
-                        <a class="nav-link" href="javascript:void(0)" onclick="openLoginModal()">
+                <li>
+                    <div class="btn-group">
+                        <!-- class "dropdown-toggle" macht das Zeichen neben "Mein Konto" -->
+                        <a id="myAccount" type="button" data-bs-toggle="dropdown" class="nav-item nav-link dropdown-toggle"
+                            href="javascript:void(0)">
                             <i class="bi bi-person"></i>
                             <span>Mein Konto</span>
                         </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="my-account" style="width: 200px;">
+                            <!-- <li style="padding-left: 20px; color: #0155a3;">
+                                <h5 class="">Mein Konto</h5>
+                            </li> -->
+                            <li class="sign-in-buttons">
+                                <button class="btn btn-primary" type="button" onclick="openLoginModal()">
+                                    Anmelden
+                                </button>
+                            </li>
+                            <li class="sign-in-buttons">
+                                <button class="btn btn-outline-primary" type="button" onclick="openRegisterModal()">
+                                    Registrieren
+                                </button>
+                            </li>
+                        </ul>
                     </div>
+
                 </li>
-                <li class="nav-item margin-auto">
+                <li class="margin-auto">
                     <div id="shopping-cart">
-                        <a class="nav-link" href="javascript:void(0)">
+                        <a id="shoppingCart" class="nav-item nav-link" href="javascript:void(0)">
                             <i class="bi bi-cart3"></i>
                             <span>0,00€</span>
                         </a>
@@ -65,13 +83,11 @@
                 <form class="px-4 py-3">
                     <div class="mb-3">
                         <label for="exampleDropdownFormEmail1" class="form-label">E-Mail-Adresse</label>
-                        <input type="email" class="form-control" id="form-email"
-                            placeholder="email@example.com" />
+                        <input type="email" class="form-control" id="form-email" placeholder="email@example.com" />
                     </div>
                     <div class="mb-3">
                         <label for="exampleDropdownFormPassword1" class="form-label">Passwort</label>
-                        <input type="password" class="form-control" id="form-password"
-                            placeholder="Passwort" />
+                        <input type="password" class="form-control" id="form-password" placeholder="Passwort" />
                     </div>
                     <div id="container-remember-me" class="mb-3">
                         <div class="form-check">
@@ -82,7 +98,8 @@
                         </div>
                     </div>
                     <div>
-                        <button id="btn-sign-in" type="submit" class="btn btn-primary" onclick="loginButtonPressed()">Anmelden</button>
+                        <button id="btn-sign-in" type="submit" class="btn btn-primary"
+                            onclick="loginButtonPressed()">Anmelden</button>
                     </div>
                 </form>
                 <div class="dropdown-divider"></div>

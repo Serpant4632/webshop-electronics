@@ -6,31 +6,36 @@ class Navigation {
 
     render(parentSelector) {
         $(parentSelector).load('./components/navigation/navigation.html', () => {
-            $('.navbar a').on('click', (e) => {
-                this.navigateTo(e.target.id);
+            $('.nav-item').on('click', (e) => {
+                console.log(`${e.currentTarget.id} was clicked`);
+                // this.navigateTo(e.target.id);
                 if (this.onClickCallback)
-                    this.onClickCallback(e.target.id);
-                console.log(`${e.target.id} was clicked`);
+                    this.onClickCallback(e.currentTarget.id);
             })
-            this.navigateTo('home');
-            if (this.onClickCallback)
-                this.onClickCallback('home');
-            console.log('navigated to Home');
+            // this.navigateTo('home');
+            // if (this.onClickCallback)
+            //     this.onClickCallback('home');
+
 
         });
     }
 
-    navigateTo(id) {
-        $('.navbar a').removeClass('active');
-        $(`.navbar a#${id}`).addClass('active');
-    }
+    // navigateTo(id) {
+    //     $('.navbar a').removeClass('active');
+    //     $(`.navbar a#${id}`).addClass('active');
+    // }
 
 }
 
 function openLoginModal() {
+    
     const myModalAlternative = new bootstrap.Modal('#loginModal', {});
     myModalAlternative.show();
 
+
+}
+
+function openRegisterModel() {
 
 }
 
