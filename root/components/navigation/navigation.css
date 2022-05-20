@@ -1,6 +1,6 @@
 .navbar {
     position: sticky;
-    max-width: 1184px;
+    max-width: 1400px;
     display: flex;
     background: linear-gradient(to right, #003E85, #206DB4, #003E85);
     height: 100px;
@@ -11,11 +11,18 @@
 .flex-container {
     display: flex;
     flex: 0 0 100%;
+
 }
 
 .navbar ul li {
     display: inline-block;
 }
+
+a.nav-link {
+    padding-left: 50px;
+    padding-right: 0;
+}
+
 
 .no-margin {
     margin: 0;
@@ -30,8 +37,9 @@
     width: 350px;
     height: 42px;
     border-radius: 15px;
-    padding: 3px 10px 10px 10px;
+    padding: 9px 10px 10px 20px;
     position: relative;
+    font-size: 0.8em;
 }
 
 .center-div {
@@ -63,9 +71,19 @@
 }
 
 ion-icon {
-    font-size: 2rem;
+    font-size: 1.5em;
     color: #0499DB;
-    
+    display: block;
+    margin: auto;
+}
+
+ion-icon#shopping-cart {
+    margin-left: 0;
+}
+
+span {
+    font-size: 12px;
+    color: white;
 }
 
 button#search-button {
@@ -73,7 +91,7 @@ button#search-button {
 }
 
 ul.navbar-right-elements {
-display: flex;
+    display: flex;
 }
 
 .float-right {
@@ -83,9 +101,11 @@ display: flex;
 .flex-1 {
     flex: 1;
 }
+
 .flex-2 {
     flex: 2;
 }
+
 .flex-3 {
     flex: 3;
 }
@@ -95,6 +115,4 @@ display: flex;
 }
 
 
-@media only screen and (max-width: 768px) {
-    
-}
+@media only screen and (max-width: 768px) {}
