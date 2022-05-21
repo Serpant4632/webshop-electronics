@@ -2,6 +2,8 @@
     height: 40px;
 }
 
-.category-button {
+.category-btn {
     cursor: pointer;
+    height: 100%; 
+    padding-top: 8px;
 }

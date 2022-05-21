@@ -1,5 +1,5 @@
-body {
-  background-color: #ffffff;
+body, #content {
+  background-color: #F4F4F4;
 }
 
 body > * {
@@ -28,4 +28,5 @@ body > * {
   margin-bottom: 10px;
   box-shadow: 0 5px 10px silver;
 } 
+
 
