@@ -5,6 +5,9 @@ $(() => {
     const navigation = new Navigation(navigatePage);
     navigation.render('#navigation');
 
+    const categories = new Categories(navigatePage);
+    categories.render('#categories');
+
     const home = new Home(navigatePage);
     home.render('#content');
 
@@ -22,7 +25,7 @@ function navigatePage(id) {
 }
 
 function registerComponents() {
-    const components = ['navigation', 'loading', 'login-modal', 'register-modal'];
+    const components = ['navigation', 'loading', 'login-modal', 'register-modal', 'categories'];
     const links = components.map((c) => $(`<script src="components/${c}/${c}.js"></script>`));
     const stylesheets = components.map((c) => $(`<link rel="stylesheet" href="components/${c}/${c}.css">`));
     $('head').prepend(links, stylesheets);
