@@ -2,36 +2,62 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Anmelden</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Registrieren</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+
                 <form class="px-4 py-3">
-                    <div class="mb-3">
-                        <label for="exampleDropdownFormEmail1" class="form-label">E-Mail-Adresse</label>
-                        <input type="email" class="form-control" id="form-email" placeholder="email@example.com" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleDropdownFormPassword1" class="form-label">Passwort</label>
-                        <input type="password" class="form-control" id="form-password" placeholder="Passwort" />
-                    </div>
-                    <div id="container-remember-me" class="mb-3">
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="form-checkbox" />
-                            <label class="form-check-label" for="dropdownCheck">
-                                Angemeldet bleiben
-                            </label>
-                        </div>
-                    </div>
-                    <div>
-                        <button id="btn-sign-in" type="submit" class="btn btn-primary">Anmelden</button>
-                    </div>
+                    <ul class="no-bullets">
+                        <li>
+                            <div class="mb-4 d-inline-block float-start">
+                                <input class="form-control height-3em" id="form-first-name" placeholder="Vorname*" />
+                            </div>
+                            <div class="mb-4 d-inline-block float-end">
+                                <input class="form-control height-3em" id="form-last-name" placeholder="Nachname*" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mb-4">
+                                <input type="email" class="form-control height-3em" id="form-email"
+                                    placeholder="E-Mail-Adresse*" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mb-4 ">
+                                <input type="password" class="form-control height-3em" id="form-password"
+                                    placeholder="Passwort*" />
+                            </div>
+                        </li>
+                        <li>
+                            <div class="mb-4 ">
+                                <input type="password" class="form-control height-3em" id="form-password"
+                                    placeholder="Passwort bestätigen*" />
+                            </div>
+                        </li>
+                        <li>
+                            <div id="container-remember-me" class="mb-4">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="form-checkbox" />
+                                    <label class="form-check-label" for="dropdownCheck">
+                                        Ich möchte den {webshop} Newsletter erhalten!
+                                    </label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button id="btn-sign-in" type="submit"
+                                    class="btn btn-primary height-3em">Registrieren</button>
+                            </div>
+                        </li>
+                    </ul>
                 </form>
                 <div class="dropdown-divider"></div>
-                <div id="text-align-center">
-                    <a class="dropdown-item text-primary" style="margin: 10px 0 10px;" href="#">Neu hier? Jetzt
-                        registrieren!</a>
-                    <a class="dropdown-item text-primary" style="margin: 10px 0 10px;" href="#">Passwort vergessen?</a>
+                <div id="text-align-center" class="border-top mb-3 pt-1">
+                    <p class="fs-4 text-dark mt-2" href="#">Sie sind bereits Kunde?</p>
+                    <button id="btn-sign-in" type="submit"
+                    class="btn btn-secondary height-3em">Anmelden</button>
                 </div>
             </div>
 

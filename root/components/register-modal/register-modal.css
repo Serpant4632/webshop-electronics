@@ -5,3 +5,20 @@ div #btn-sign-in {
 #text-align-center {
     text-align: center;
 }
+
+ul.no-bullets {
+    list-style-type: none;
+    /* Remove bullets */
+    padding: 0;
+    /* Remove padding */
+    margin: 0;
+    /* Remove margins */
+}
+
+.height-3em {
+    height: 3em;
+}
+
+.modal-body >* input::-webkit-input-placeholder {
+    font-size: 1.1em;
+}
