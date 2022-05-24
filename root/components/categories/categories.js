@@ -18,12 +18,17 @@ class Categories {
 
             const categoryBtn = $('.category-btn');
             const collapse = $('#collapse-container');
-            const parentContainer = $('#categories');
 
-            categoryBtn.on('mouseenter', (e) => {
+            categoryBtn.on('mouseenter', () => {
                 collapse.collapse('show');
             });
-            parentContainer.on('mouseleave', (e) => {
+            categoryBtn.on('click', () => {
+                collapse.collapse('toggle');
+            });
+            $('#navigation').on('mousemove', () => {
+                collapse.collapse('hide');
+            });
+            $('#content').on('mousemove', () => {
                 collapse.collapse('hide');
             });
         });
