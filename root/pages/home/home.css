@@ -9,12 +9,16 @@ button.carousel-control-prev {
 }
 
 span.carousel-control-next-icon {
-    background-color: #245392;
+    background-color: grey;
     margin-right: 2px;
     height: 30px;
-    width: 50px;
+    width: 40px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-radius: 10px;
+    opacity: 0.3;
+}
+
+span.carousel-control-next-icon:hover {
     opacity: 0.9;
 }
