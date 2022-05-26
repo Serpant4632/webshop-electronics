@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost/webshop-electronics/api/userDatabase.php';
+const baseUrl = 'http://localhost/backend-webshop-electronics/api/userDatabase.php';
 async function getDatabaseContent() {
     const response = await fetch(baseUrl);
     const result = await response.json();
