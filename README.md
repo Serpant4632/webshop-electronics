@@ -1,6 +1,6 @@
 # webshop-electronics
 This is our study project.
 
-Icon Pack used: https://fontawesome.com/icons
+BS5 and JQuery are used!
 
 vercel online view: https://webshop-electronics.vercel.app/
