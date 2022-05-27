@@ -100,8 +100,11 @@ class Home extends Page {
 
     renderCarouselCards(products) {
 
+        const productsCarousel =  $('#products-carousel');
         const productsCarouselInner = $('#products-carousel .carousel-inner');
         const productsCarouselItem = $('#products-carousel .carousel-inner .carousel-item');
+        const btnPrev = $('button.carousel-control-prev');
+        const btnNext = $('button.carousel-control-next');
         
         productsCarouselItem.clone().removeClass('active').appendTo(productsCarouselInner);
         productsCarouselItem.clone().removeClass('active').appendTo(productsCarouselInner);
@@ -112,6 +115,17 @@ class Home extends Page {
             $(this).find('img').attr('src', imagesPath + 'arduino.jpeg');
             $(this).find('.card-title').text(products[index].title);
             $(this).find('.card-text').text(products[index].description);
+        });
+
+        productsCarousel.on('mousemove', () => {
+            console.log('inside');
+            btnPrev.css('opacity', 0.9);
+            btnNext.css('opacity', 0.9);
+        });
+        productsCarousel.on('mouseleave', () => {
+            btnPrev.css('opacity', 0.1);
+            btnNext.css('opacity', 0.1);
+
         });
     }
 }

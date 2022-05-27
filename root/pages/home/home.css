@@ -16,9 +16,14 @@ span.carousel-control-next-icon, span.carousel-control-prev-icon {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-radius: 10px;
-    opacity: 0.3;
+
 }
 
-span.carousel-control-next-icon:hover {
-    opacity: 0.9;
+button.carousel-control-prev, button.carousel-control-next {
+height: fit-content;
+top: 45%;
 }
+
+/* span.carousel-control-next-icon:hover, span.carousel-control-prev-icon:hover {
+    opacity: 0.9;
+} */
