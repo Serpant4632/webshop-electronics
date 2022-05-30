@@ -29,12 +29,19 @@ div.brand-background {
 .brand-card {
     border: none !important;
     padding: 20px;
+    transition: padding 0.7s;
 }
 
 .brand-card:hover {
-    margin-bottom: 20px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 .brand-img {
     z-index: 100;
+}
+
+div.card.btn {
+    padding: 0;
+    text-align: start;
 }
