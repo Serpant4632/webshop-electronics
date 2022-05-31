@@ -6,20 +6,6 @@ body > * {
   padding: 5px;
 }
 
-.header {
-  text-align: center;
-}
-
-.color {
-  color: white;
-}
-
-.main-content {
-  width: calc(70% - 50px);
-  margin: 0px 10px;
-  vertical-align: top;
-}
-
 #navigation {
   padding: 0;
 }
