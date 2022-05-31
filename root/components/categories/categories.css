@@ -6,4 +6,12 @@
     cursor: pointer;
     height: 100%; 
     padding-top: 8px;
+
+}
+
+.category-span {
+    display:inline-block;
+    border-bottom:2px solid black;
+
+    padding-bottom:1px;
 }

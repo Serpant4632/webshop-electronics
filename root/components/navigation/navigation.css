@@ -107,7 +107,7 @@ a.nav-link {
     padding-left: calc(50% - 12px);
 }
 
-span {
+.nav-item i span {
     font-size: 12px;
     color: white;
 }
