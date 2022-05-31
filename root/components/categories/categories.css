@@ -15,3 +15,9 @@
 
     padding-bottom:1px;
 }
+
+.list-group a {
+    background-color: inherit;
+    font-size: smaller;
+    cursor: pointer;
+}
