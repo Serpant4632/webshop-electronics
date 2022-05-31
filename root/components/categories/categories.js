@@ -19,14 +19,10 @@ class Categories {
             const categoryBtn = $('.category-btn');
             const collapse = $('#collapse-container');
 
-            categoryBtn.on('mouseover', (e) => {
+            categoryBtn.on('mousemove', (e) => {
                 collapse.collapse('show');
-                $('.category-btn span').not(e.currentTarget.children[0].classList.add('category-span')).removeClass('category-span');
-                e.currentTarget.children[0].classList.add('category-span');
-                //e.currentTarget.classList.add('category-span');
-                //console.log($('.category-btn span').not($(e.currentTarget.localName))); 
-                // $('.category-btn span').not($(e.currentTarget.cl)).css('background-color', 'red');
-               // $('.category-btn span').addClass('category-span');
+                $('.category-btn span').not($(e.currentTarget).children('span')).removeClass('category-span');
+                $(e.currentTarget).children('span').addClass('category-span');
             });
             categoryBtn.on('click', () => {
                 collapse.collapse('toggle');
