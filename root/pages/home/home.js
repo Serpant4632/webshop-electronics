@@ -118,7 +118,6 @@ class Home extends Page {
         });
 
         productsCarousel.on('mousemove', () => {
-            console.log('inside');
             btnPrev.css('opacity', 0.9);
             btnNext.css('opacity', 0.9);
         });

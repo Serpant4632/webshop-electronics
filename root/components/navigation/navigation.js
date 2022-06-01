@@ -19,7 +19,6 @@ class Navigation {
 
             // open Sign-In Modal
             $('#my-account-sign-in-btn').on('click', (e) => {
-                console.log(this);
                 const loginModal = new LoginModal(this.onClickCallback);
                 loginModal.render($('#modal-container'));
             });
