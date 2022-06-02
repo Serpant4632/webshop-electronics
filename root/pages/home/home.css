@@ -46,4 +46,31 @@ div.card.btn {
     text-align: start;
 }
 
+.carousel-card .card-title{
+    max-height: 50px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
 
+.carousel-card .card-text{
+
+    max-height: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+
+}
+
+.carousel-card .card-img-top{
+    padding: 10px;
+    height: 200px;
+}
+
+.col-card {
+    height: 380px;
+}

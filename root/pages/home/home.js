@@ -1,86 +1,8 @@
-const products = [
-    {
-        id: '1',
-        title: 'title1',
-        description: 'asdflkasdjflka'
-    },
-    {
-        id: '2',
-        title: 'title2',
-        description: 'afdsasdflkasdjflka'
-    },
-    {
-        id: '3',
-        title: 'title3',
-        description: 'asfdasdflkasdjflhffhgka'
-    },
-    {
-        id: '4',
-        title: 'title4',
-        description: 'asdflkasdjflghfghfghfgffhghka'
-    },
-    {
-        id: '5',
-        title: 'title5',
-        description: 'asdflkasdjflghfghfghfgffhghkaasdfasdfsadfasd'
-    },
-    {
-        id: '1',
-        title: 'title1',
-        description: 'asdflkasdjflka'
-    },
-    {
-        id: '2',
-        title: 'title2',
-        description: 'afdsasdflkasdjflka'
-    },
-    {
-        id: '3',
-        title: 'title3',
-        description: 'asfdasdflkasdjflhffhgka'
-    },
-    {
-        id: '4',
-        title: 'title4',
-        description: 'asdflkasdjflghfghfghfgffhghka'
-    },
-    {
-        id: '5',
-        title: 'title5',
-        description: 'asdflkasdjflghfghfghfgffhghkaasdfasdfsadfasd'
-    },
-    {
-        id: '1',
-        title: 'title1',
-        description: 'asdflkasdjflka'
-    },
-    {
-        id: '2',
-        title: 'title2',
-        description: 'afdsasdflkasdjflka'
-    },
-    {
-        id: '3',
-        title: 'title3',
-        description: 'asfdasdflkasdjflhffhgka'
-    },
-    {
-        id: '4',
-        title: 'title4',
-        description: 'asdflkasdjflghfghfghfgffhghka'
-    },
-    {
-        id: '5',
-        title: 'title5',
-        description: 'asdflkasdjflghfghfghfgffhghkaasdfasdfsadfasd'
-    },
-];
-
 const imagesPath = '/resources/images/';
 
 class Home extends Page {
     productDatabaseService;
-    allProducts;
+    carouselCardProducts;
     constructor() {
         super('home');
         this.productDatabaseService = new ProductDatabaseService();
@@ -96,18 +18,19 @@ class Home extends Page {
                     this.onClickCallback(e.currentTarget.id);
             })
 
-            this.loadAllProducts();
-            this.renderCarouselCards(products);
+            this.loadCarouselCardProducts().then((products) => this.renderCarouselCards(products));
 
         });
     }
 
-    loadAllProducts() {
-        this.productDatabaseService.getAllProducts().then(res => this.allProducts = res);
+        // shuffle ProductItems and randomly choose 20
+    async loadCarouselCardProducts() {
+        const allProducts = await this.productDatabaseService.getAllProducts();
+        return this.getRandom(allProducts, 20);
     }
 
+    
     renderCarouselCards(products) {
-
         const productsCarousel =  $('#products-carousel');
         const productsCarouselInner = $('#products-carousel .carousel-inner');
         const productsCarouselItem = $('#products-carousel .carousel-inner .carousel-item');
@@ -116,15 +39,16 @@ class Home extends Page {
         
         productsCarouselItem.clone().removeClass('active').appendTo(productsCarouselInner);
         productsCarouselItem.clone().removeClass('active').appendTo(productsCarouselInner);
+        productsCarouselItem.clone().removeClass('active').appendTo(productsCarouselInner);
         
         const productsCards = productsCarouselInner.find('.card');
 
         productsCards.each(function (index) {
-            $(this).find('img').attr('src', imagesPath + 'arduino.jpeg');
+            $(this).find('img').attr('src', `${imagesPath}image-${products[index].id}.jpeg`);
             $(this).find('.card-title').text(products[index].title);
             $(this).find('.card-text').text(products[index].description);
         });
-
+        
         productsCarousel.on('mousemove', () => {
             btnPrev.css('opacity', 0.9);
             btnNext.css('opacity', 0.9);
@@ -132,8 +56,21 @@ class Home extends Page {
         productsCarousel.on('mouseleave', () => {
             btnPrev.css('opacity', 0.1);
             btnNext.css('opacity', 0.1);
-
+            
         });
     }
+
+    getRandom(arr, n) {
+        var result = new Array(n),
+            len = arr.length,
+            taken = new Array(len);
+        if (n > len)
+            throw new RangeError("getRandom: more elements taken than available");
+        while (n--) {
+            var x = Math.floor(Math.random() * len);
+            result[n] = arr[x in taken ? taken[x] : x];
+            taken[x] = --len in taken ? taken[len] : len;
+        }
+        return result;
+    }
 }
- 
