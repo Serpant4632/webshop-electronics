@@ -65,12 +65,9 @@ class Categories {
         const productListItem = $('.list-item-subcategory');
 
         if($(element.currentTarget).hasClass('activeCategory')) {
-
-            console.log('in RETURN');
             return;
         }
         else{
-            console.log('in ELSE');
             $('.category-btn').removeClass('activeCategory');
             $('.col.col-subcategory').slice(1).remove();
             $('.col.col-subcategory').find('.heading-subcategory').html('');
@@ -90,7 +87,7 @@ class Categories {
             const subCatItems = currentCatItems.filter((el) => el.subCategory === subCat);
 
             subCatItems.forEach((item) => {
-                newSubCatCol.append(`<a class="list-item-subcategory list-group-item">${item.title}</a>`);
+                newSubCatCol.find('.list-group').append(`<a class="list-item-subcategory list-group-item">${item.title}</a>`);
             });
             newSubCatCol.find('.list-item-subcategory').first().remove();
             subCatRow.append(newSubCatCol);
@@ -105,11 +102,11 @@ class Categories {
         const collapse = $('#collapse-container');
 
         categoryBtn.on('mousemove', (e) => {
+            this.loadSubCategoryHtml(e);
             collapse.collapse('show');
             $('.category-btn span').not($(e.currentTarget).children('span')).removeClass('category-span');
             $(e.currentTarget).children('span').addClass('category-span');
 
-            this.loadSubCategoryHtml(e);
         });
         categoryBtn.on('click', () => {
             collapse.collapse('toggle');
