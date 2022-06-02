@@ -1,50 +1,54 @@
 class ProductDatabaseService {
-    productUrl = 'http://localhost/backend-webshop-electronics/api/product_database.php';
-    searchbarUrl = 'http://localhost/backend-webshop-electronics/api/searchbar.php';
+    baseUrl = 'http://localhost/backend-webshop-electronics/api/product_database.php';
 
     constructor() {
 
     }
 
     async getAllProducts() {
-        const response = await fetch(this.productUrl);
+        const response = await fetch(this.baseUrl);
         const result = await response.json();
         return result;
     }
 
     async getProductById(id) {
-        const response = await fetch(`${this.productUrl}?id=${id}`);
-        // const test = await fetch('' + this.productUrl + '?id=' + id); // equivalent
+        const response = await fetch(`${this.baseUrl}?id=${id}`);
+        // const test = await fetch('' + this.baseUrl + '?id=' + id); // equivalent
         const result = await response.json();
         return result;
     }
 
     async getProductByTitle(title) {
-        const response = await fetch(`${this.searchbarUrl}?title=${title}`);
-        // const test = await fetch('' + this.searchbarUrl + '?id=' + id); // equivalent
+        const response = await fetch(`${this.baseUrl}?title=${title}`);
         const result = await response.json();
         return result;
     }
 
     async postProduct(newContent) {
         console.log('post database content', newContent);
-        await fetch(this.productUrl, {
+        await fetch(this.baseUrl, {
             method: 'POST',
             body: JSON.stringify(newContent),
         });
     }
 
     async deleteProduct(id) {
-        await fetch(`${this.productUrl}?id=${id}`, {
+        await fetch(`${this.baseUrl}?id=${id}`, {
             method: 'DELETE',
         });
     }
 
     async patchProduct(updatedContent) {
-        await fetch(this.productUrl, {
+        await fetch(this.baseUrl, {
             method: 'PATCH',
             body: JSON.stringify(updatedContent),
         });
+    }
+
+    async getCategories() {
+        const response = await fetch(`${this.baseUrl}?category`);
+        const result = await response.json();
+        return result;
     }
 
     async getSubCatInCat() {

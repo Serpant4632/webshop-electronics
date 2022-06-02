@@ -15,7 +15,6 @@ $(() => {
     const footer = new Footer(navigatePage);
     footer.render('#footer');
 
-
 });
 
 function navigatePage(id) {
