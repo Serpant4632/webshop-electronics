@@ -1,7 +1,9 @@
 class Navigation {
     onClickCallback;
+    productDatabaseService;
     constructor(onClick) {
         this.onClickCallback = onClick;
+        this.productDatabaseService = new ProductDatabaseService();
     }
 
     render(parentSelector) {
@@ -29,19 +31,21 @@ class Navigation {
                 registerModal.render($('#modal-container'));
                 
             });
+
+            const searchbar = $('#sSearch');
+
+            searchbar.on('input', (e) => {
+                const searchbarSubstring = e.target.value;
+                var data = this.productDatabaseService.getDatabaseContentByTitle(searchbarSubstring);
+                console.log(data);
+            });
         });
     }
 
 }
 
-window.onload=function() {
-    const searchBar = document.getElementById('sSearch');
-    console.log(searchBar);
 
-    searchBar.addEventListener('input', (e) => {
-        console.log(e.target.value);
-    });
-};
+
 
 
 
