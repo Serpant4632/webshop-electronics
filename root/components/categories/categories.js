@@ -2,6 +2,7 @@ class Categories {
     onClickCallback;
     productDatabaseService;
     subCategoriesInCategories = [];
+    allProducts = [];
 
     constructor(onClick) {
         this.onClickCallback = onClick;
@@ -17,18 +18,18 @@ class Categories {
                     this.onClickCallback(e.currentTarget.id);
             });
 
+            this.loadCategoryData();
             this.setupListeners();
 
-            this.loadCategoryData();
+
         });
     }
 
     loadCategoryData() {
         this.productDatabaseService.getDatabaseContent().then((res) => {
-            console.log(res);
-            this.categories = res;
+            this.allProducts = res;
             let arrFilteredSubCategories = [];
-            this.categories.forEach((el) => {
+            this.allProducts.forEach((el) => {
                 let hasSubcategory;
                 arrFilteredSubCategories.forEach((rEl) => {
                     if (rEl.subCategory === el.subCategory)
@@ -37,7 +38,6 @@ class Categories {
                 if (!hasSubcategory)
                     arrFilteredSubCategories.push(el);
             });
-            
             let arrFilteredCategories = [];
             let arrSubCategories = [];
             for (let index = 0; index < arrFilteredSubCategories.length; index++) {
@@ -47,53 +47,57 @@ class Categories {
                 }else {
                     arrFilteredCategories.push({
                         category: element.category,
-                        subCategories: arrSubCategories,
+                        subCategories: [...new Set(arrSubCategories)],
                     });
                     arrSubCategories = [];
                 }
             }
             this.subCategoriesInCategories = arrFilteredCategories;
-
-           // const x = result.filter((el) => el.category ===  );
-            // const filteredCategories = this.categories.map((el) => {
-            //     return {
-            //         category: el.category,
-            //         subcategory: el.subCategory
-            //     }
-            // });
-            // console.log(filteredCategories);
-            // let filteredAgain;
-            // filteredCategories.forEach((el) => {
-            //     el.subcategory
-            //     // f(!this.categories.includes()) 
-            // });
-
-            // const c = filteredCategories.map((el) => {
-            //     if(this.categories.includes())
-            // });
-            // res.forEach((e) => {
-
-            //     console.log(this.categories);
-            //     console.log(filteredCategories);
-            //     this.subcategories.forEach((el) => {
-            //         if (!el.subcategories.includes(e.subcategory))
-            //             el.subcategories.push(e.subcategory);
-            //     });
-            //     this.subcategories.push(
-            //         {
-            //             category: e.category,
-            //             subcategories: e.subcategory
-            //         }
-            //     );
-            //     // console.log(e);
-            //     // if(!this.categories.includes(e.category)){
-            //     //     this.categories.push(e.category);
-            //     // }
-            //     // if(!this.subcategories.includes(e.subcategory))
-            //     //     this.subcategories.push(e.subcategory);
-            // });
-            // console.log(this.categories);
         });
+    }
+
+    loadSubCategoryHtml(element) {
+        const elementCategory = element.currentTarget.id;
+        const currentCatItems = this.allProducts.filter((el) => el.category === elementCategory);
+        const subCatRow = $('#subcategory-row');
+        let subCategoryCol = $('.col.col-subcategory').clone();
+        const headingSubCat = $('.heading-subcategory');
+        const productListItem = $('.list-item-subcategory');
+
+        if($(element.currentTarget).hasClass('activeCategory')) {
+
+            console.log('in RETURN');
+            return;
+        }
+        else{
+            console.log('in ELSE');
+            $('.category-btn').removeClass('activeCategory');
+            $('.col.col-subcategory').slice(1).remove();
+            $('.col.col-subcategory').find('.heading-subcategory').html('');
+            $('.col.col-subcategory').find('.list-item-subcategory').slice(1).remove();
+            $('.col.col-subcategory').find('.list-item-subcategory').html('');
+            subCategoryCol = $('.col.col-subcategory');
+        }
+        $('.col.col-subcategory').remove();
+        
+        const currentCatAndSubCat = this.subCategoriesInCategories.find((el) => el.category === elementCategory);
+
+        currentCatAndSubCat['subCategories'].forEach((subCat) => {
+            let newSubCatCol = subCategoryCol.clone();
+            newSubCatCol.find('.heading-subcategory').html(subCat);
+            console.log(subCategoryCol.html());
+
+            const subCatItems = currentCatItems.filter((el) => el.subCategory === subCat);
+
+            subCatItems.forEach((item) => {
+                newSubCatCol.append(`<a class="list-item-subcategory list-group-item">${item.title}</a>`);
+            });
+            newSubCatCol.find('.list-item-subcategory').first().remove();
+            subCatRow.append(newSubCatCol);
+        });
+
+        $(element.currentTarget).addClass('activeCategory');
+
     }
 
     setupListeners() {
@@ -104,6 +108,8 @@ class Categories {
             collapse.collapse('show');
             $('.category-btn span').not($(e.currentTarget).children('span')).removeClass('category-span');
             $(e.currentTarget).children('span').addClass('category-span');
+
+            this.loadSubCategoryHtml(e);
         });
         categoryBtn.on('click', () => {
             collapse.collapse('toggle');
@@ -116,5 +122,7 @@ class Categories {
             collapse.collapse('hide');
             $('.category-btn span').removeClass('category-span');
         });
+
+        
     }
 }
