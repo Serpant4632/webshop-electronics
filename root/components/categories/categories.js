@@ -17,7 +17,7 @@ class Categories {
                 if (this.onClickCallback)
                     this.onClickCallback(e.currentTarget.id);
             });
-
+            this.productDatabaseService.getCategories().then(res => console.log(res));
             this.loadCategoryData();
             this.setupListeners();
 
@@ -26,7 +26,7 @@ class Categories {
     }
 
     loadCategoryData() {
-        this.productDatabaseService.getSubCatInCat().then(res => this.subCategoriesInCategories = res);
+        this.productDatabaseService.getCategories().then(res => this.subCategoriesInCategories = res);
         this.productDatabaseService.getAllProducts().then(res => this.allProducts = res);
     }
 

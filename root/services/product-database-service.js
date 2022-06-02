@@ -13,7 +13,6 @@ class ProductDatabaseService {
 
     async getProductById(id) {
         const response = await fetch(`${this.baseUrl}?id=${id}`);
-        // const test = await fetch('' + this.baseUrl + '?id=' + id); // equivalent
         const result = await response.json();
         return result;
     }
@@ -47,37 +46,16 @@ class ProductDatabaseService {
 
     async getCategories() {
         const response = await fetch(`${this.baseUrl}?category`);
-        const result = await response.json();
-        return result;
-    }
-
-    async getSubCatInCat() {
-        let allProducts = await this.getAllProducts();
-        let arrFilteredSubCategories = [];
-        allProducts.forEach((el) => {
-            let hasSubcategory;
-            arrFilteredSubCategories.forEach((rEl) => {
-                if (rEl.subCategory === el.subCategory)
-                    hasSubcategory = true;
+        const resJson = await response.json();
+        let result = [];
+        resJson.forEach((cat) => {
+            const subCats = cat['GROUP_CONCAT(DISTINCT(subCategory))'].split(',');
+            result.push({
+                category: cat.category,
+                subCategories: subCats
             });
-            if (!hasSubcategory)
-                arrFilteredSubCategories.push(el);
         });
-        let arrFilteredCategories = [];
-        let arrSubCategories = [];
-        for (let index = 0; index < arrFilteredSubCategories.length; index++) {
-            const element = arrFilteredSubCategories[index];
-            if (arrFilteredSubCategories[index + 1] && element.category === arrFilteredSubCategories[index + 1].category) {
-                arrSubCategories.push(element.subCategory, arrFilteredSubCategories[index + 1].subCategory);
-            } else {
-                arrFilteredCategories.push({
-                    category: element.category,
-                    subCategories: [...new Set(arrSubCategories)],
-                });
-                arrSubCategories = [];
-            }
-        }
-        return arrFilteredCategories;
+        return result;
     }
 
 }
