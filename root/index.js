@@ -22,7 +22,8 @@ function navigatePage(id) {
         home: new Home(),
         myAccount: new MyAccount(),
         shoppingCart: new ShoppingCart(),
-        wishList: new WishList()
+        wishList: new WishList(),
+        productPage: new ProductPage()
     };
     pages[id].render('#content');
 }
@@ -35,7 +36,7 @@ function registerComponents() {
 }
 
 function registerPages() {
-    const pages = ['home', 'wish-list', 'my-account', 'shopping-cart'];
+    const pages = ['home', 'wish-list', 'my-account', 'shopping-cart', 'product-page'];
     const links = pages.map((c) => $(`<script src="pages/${c}/${c}.js"></script>`));
     const stylesheets = pages.map((c) => $(`<link rel="stylesheet" href="pages/${c}/${c}.css">`));
     $('head').prepend(links, stylesheets);
