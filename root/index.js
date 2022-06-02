@@ -44,7 +44,7 @@ function registerPages() {
 }
 
 function registerServices() {
-    const services = ['product-database-service', 'user-database-service'];
+    const services = ['product-database-service', 'user-database-service', 'order-database-service'];
     const scripts = services.map((s) => $(`<script src="services/${s}.js"></script>`));
     $('head').prepend(scripts);
 }
