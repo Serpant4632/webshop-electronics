@@ -1,6 +1,7 @@
 $(() => {
     registerComponents();
     registerPages();
+    registerServices();
 
     const navigation = new Navigation(navigatePage);
     navigation.render('#navigation');
@@ -40,4 +41,10 @@ function registerPages() {
     const links = pages.map((c) => $(`<script src="pages/${c}/${c}.js"></script>`));
     const stylesheets = pages.map((c) => $(`<link rel="stylesheet" href="pages/${c}/${c}.css">`));
     $('head').prepend(links, stylesheets);
+}
+
+function registerServices() {
+    const services = ['product-database-service', 'user-database-service'];
+    const scripts = services.map((s) => $(`<script src="services/${s}.js"></script>`));
+    $('head').prepend(scripts);
 }
