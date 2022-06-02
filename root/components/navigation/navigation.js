@@ -34,6 +34,16 @@ class Navigation {
 
 }
 
+window.onload=function() {
+    const searchBar = document.getElementById('sSearch');
+    console.log(searchBar);
+
+    searchBar.addEventListener('input', (e) => {
+        console.log(e.target.value);
+    });
+};
+
+
 
 
 // function formIsCorrect() {
