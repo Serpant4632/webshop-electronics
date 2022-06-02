@@ -27,7 +27,7 @@ class Categories {
 
     loadCategoryData() {
         this.productDatabaseService.getSubCatInCat().then(res => this.subCategoriesInCategories = res);
-        this.productDatabaseService.getDatabaseContent().then(res => this.allProducts = res);
+        this.productDatabaseService.getAllProducts().then(res => this.allProducts = res);
     }
 
     loadSubCategoryHtml(element) {

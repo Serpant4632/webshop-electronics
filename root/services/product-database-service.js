@@ -6,27 +6,27 @@ class ProductDatabaseService {
 
     }
 
-    async getDatabaseContent() {
+    async getAllProducts() {
         const response = await fetch(this.productUrl);
         const result = await response.json();
         return result;
     }
 
-    async getDatabaseContentById(id) {
+    async getProductById(id) {
         const response = await fetch(`${this.productUrl}?id=${id}`);
         // const test = await fetch('' + this.productUrl + '?id=' + id); // equivalent
         const result = await response.json();
         return result;
     }
 
-    async getDatabaseContentByTitle(title) {
+    async getProductByTitle(title) {
         const response = await fetch(`${this.searchbarUrl}?title=${title}`);
         // const test = await fetch('' + this.searchbarUrl + '?id=' + id); // equivalent
         const result = await response.json();
         return result;
     }
 
-    async postDatabaseContent(newContent) {
+    async postProduct(newContent) {
         console.log('post database content', newContent);
         await fetch(this.productUrl, {
             method: 'POST',
@@ -34,13 +34,13 @@ class ProductDatabaseService {
         });
     }
 
-    async deleteDatabaseContent(id) {
+    async deleteProduct(id) {
         await fetch(`${this.productUrl}?id=${id}`, {
             method: 'DELETE',
         });
     }
 
-    async patchDatabaseContent(updatedContent) {
+    async patchProduct(updatedContent) {
         await fetch(this.productUrl, {
             method: 'PATCH',
             body: JSON.stringify(updatedContent),
@@ -48,7 +48,7 @@ class ProductDatabaseService {
     }
 
     async getSubCatInCat() {
-        let allProducts = await this.getDatabaseContent();
+        let allProducts = await this.getAllProducts();
         let arrFilteredSubCategories = [];
         allProducts.forEach((el) => {
             let hasSubcategory;

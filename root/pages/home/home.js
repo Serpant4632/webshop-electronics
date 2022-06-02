@@ -79,8 +79,11 @@ const products = [
 const imagesPath = '/resources/images/';
 
 class Home extends Page {
+    productDatabaseService;
+    allProducts;
     constructor() {
         super('home');
+        this.productDatabaseService = new ProductDatabaseService();
     }
 
 
@@ -93,9 +96,14 @@ class Home extends Page {
                     this.onClickCallback(e.currentTarget.id);
             })
 
+            this.loadAllProducts();
             this.renderCarouselCards(products);
 
         });
+    }
+
+    loadAllProducts() {
+        this.productDatabaseService.getAllProducts().then(res => this.allProducts = res);
     }
 
     renderCarouselCards(products) {
