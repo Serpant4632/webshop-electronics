@@ -17,7 +17,6 @@ class Categories {
                 if (this.onClickCallback)
                     this.onClickCallback(e.currentTarget.id);
             });
-            this.productDatabaseService.getCategories().then(res => console.log(res));
             this.loadCategoryData();
             this.setupListeners();
 
