@@ -33,15 +33,17 @@ class Navigation {
             });
 
             const searchbar = $('#sSearch');
-
+            
             searchbar.on('input', (e) => {
                 const searchbarSubstring = e.target.value;
                 var data = this.productDatabaseService.getDatabaseContentByTitle(searchbarSubstring);
                 console.log(data);
+                
+                const searchbarContent = new SearchbarContent(navigatePage);
+                searchbarContent.render('#content');
             });
         });
     }
-
 }
 
 
