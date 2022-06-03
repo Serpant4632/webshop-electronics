@@ -36,7 +36,7 @@ class Navigation {
             
             searchbar.on('input', (e) => {
                 const searchbarSubstring = e.target.value;
-                var data = this.productDatabaseService.getDatabaseContentByTitle(searchbarSubstring);
+                var data = this.productDatabaseService.getProductByTitle(searchbarSubstring);
                 console.log(data);
                 
                 const searchbarContent = new SearchbarContent(navigatePage);
