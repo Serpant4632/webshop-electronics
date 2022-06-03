@@ -18,12 +18,12 @@ class ProductDatabaseService {
     }
 
     async getProductByTitle(title) {
-        await fetch(`${this.baseUrl}?title=${title}`).then((res) => {
+        return fetch(`${this.baseUrl}?title=${title}`).then(async(res) => {
             const result = await res.json();
             // console.log(result);
             return result;
         }).catch((error) => {
-            console.log(error)
+            return 'notFound';
         });
         
     }
