@@ -1,3 +1,4 @@
+const imagesPath = '/resources/images/image-';
 $(() => {
     registerComponents();
     registerPages();
@@ -17,16 +18,18 @@ $(() => {
 
 });
 
-function navigatePage(id) {
-    console.log('navigate to page', id);
+    // second parameter id (can be productId) for displaying productData when ProductPage is called
+    // second parameter id (can be userId) when MyAccount is called
+function navigatePage(pageName, id) {
+    console.log('navigate to page', pageName);
     const pages = {
         home: new Home(),
         myAccount: new MyAccount(),
         shoppingCart: new ShoppingCart(),
         wishList: new WishList(),
-        productPage: new ProductPage()
+        productPage: new ProductPage(id)
     };
-    pages[id].render('#content');
+    pages[pageName].render('#content');
 }
 
 function registerComponents() {

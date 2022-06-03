@@ -83,6 +83,7 @@ class Categories {
         categoryBtn.on('click', () => {
             collapse.collapse('toggle');
         });
+
         $('#navigation').on('mousemove', () => {
             collapse.collapse('hide');
             $('.category-btn span').removeClass('category-span');

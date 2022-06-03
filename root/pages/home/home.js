@@ -1,54 +1,56 @@
-const imagesPath = '/resources/images/';
-
 class Home extends Page {
     productDatabaseService;
     carouselCardProducts;
-    constructor() {
+    onClickCallback;
+    constructor(onClickCallback) {
         super('home');
         this.productDatabaseService = new ProductDatabaseService();
+        this.onClickCallback = onClickCallback;
     }
 
 
     render(parentSelector) {
         $(parentSelector).load('./pages/home/home.html', () => {
-            $('.nav-item').on('click', (e) => {
-                console.log(`${e.currentTarget.id} was clicked`);
-                // this.navigateTo(e.target.id);
-                if (this.onClickCallback)
-                    this.onClickCallback(e.currentTarget.id);
-            })
+            this.loadCarouselCardProducts().then((products) => {
+                this.renderCarouselCards(products);
 
-            this.loadCarouselCardProducts().then((products) => this.renderCarouselCards(products));
+                $('.product-item').on('click', (e) => {
+                    if (this.onClickCallback){
+                        this.onClickCallback('productPage', e.currentTarget.id);
+                    }
+                })
 
+            });
         });
     }
 
-        // shuffle ProductItems and randomly choose 20
+    // shuffle ProductItems and randomly choose 20
     async loadCarouselCardProducts() {
         const allProducts = await this.productDatabaseService.getAllProducts();
         return this.getRandom(allProducts, 20);
     }
 
-    
+
     renderCarouselCards(products) {
-        const productsCarousel =  $('#products-carousel');
+        const productsCarousel = $('#products-carousel');
         const productsCarouselInner = $('#products-carousel .carousel-inner');
         const productsCarouselItem = $('#products-carousel .carousel-inner .carousel-item');
         const btnPrev = $('button.carousel-control-prev');
         const btnNext = $('button.carousel-control-next');
-        
+
         productsCarouselItem.clone().removeClass('active').appendTo(productsCarouselInner);
         productsCarouselItem.clone().removeClass('active').appendTo(productsCarouselInner);
         productsCarouselItem.clone().removeClass('active').appendTo(productsCarouselInner);
-        
+
         const productsCards = productsCarouselInner.find('.card');
 
         productsCards.each(function (index) {
-            $(this).find('img').attr('src', `${imagesPath}image-${products[index].id}.jpeg`);
+            $(this).find('img').attr('src', `${imagesPath}${products[index].id}.jpeg`);
             $(this).find('.card-title').text(products[index].title);
             $(this).find('.card-text').text(products[index].description);
+            $(this).prop('id', products[index].id);
         });
-        
+
         productsCarousel.on('mousemove', () => {
             btnPrev.css('opacity', 0.9);
             btnNext.css('opacity', 0.9);
@@ -56,7 +58,7 @@ class Home extends Page {
         productsCarousel.on('mouseleave', () => {
             btnPrev.css('opacity', 0.1);
             btnNext.css('opacity', 0.1);
-            
+
         });
     }
 

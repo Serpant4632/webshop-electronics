@@ -1,6 +1,11 @@
 class ProductPage extends Page {
-    constructor() {
+    productId;
+    product;
+    productDatabaseService;
+    constructor(pId) {
         super('product-page');
+        this.productId = pId;
+        this.productDatabaseService = new ProductDatabaseService();
     }
 
 
@@ -13,10 +18,15 @@ class ProductPage extends Page {
                     this.onClickCallback(e.currentTarget.id);
             })
 
-            this.renderCarouselCards(products);
+            this.loadProductData().then((product) => {
+                let productImage = $('#productImage');
+                productImage.prop('src', `${imagesPath}${this.product.id}.jpeg`);
+            });
 
         });
     }
 
-    
+    async loadProductData() {
+        this.product = await this.productDatabaseService.getProductById(this.productId);
+    }
 }
