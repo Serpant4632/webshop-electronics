@@ -9,15 +9,15 @@
 - filter has to select all items with given properties from productDatabase
 - seems like a GET call
 
-# Link Components API
+<!-- # Link Components API
 - search fitting components API
-- include it, to provide more items 
+- include it, to provide more items  -->
 
-# create FakerJS data
+<!-- # create FakerJS data
 - data for order and support 
 - creat orders with FakerJS and the given product and userDatabase
 - implement these functions in local repository and POST data as json to orderDatabase
-- !IMPORTANT orderID is foreign-Key of userDatabase.id
+- !IMPORTANT orderID is foreign-Key of userDatabase.id -->
 
 # implement order history for my account
 - function for order history is written
