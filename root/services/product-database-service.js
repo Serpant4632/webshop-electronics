@@ -23,7 +23,7 @@ class ProductDatabaseService {
             // console.log(result);
             return result;
         }).catch((error) => {
-            return 'notFound';
+            return null;
         });
         
     }

@@ -18,9 +18,27 @@ class ProductPage extends Page {
                     this.onClickCallback(e.currentTarget.id);
             })
 
-            this.loadProductData().then((product) => {
-                let productImage = $('#productImage');
+
+
+            this.loadProductData().then(() => {
+                console.log(this.product);
+                let productImage = $('#product-image');
+                let productTitle = $('#product-title');
+                let productCategory = $('#product-category');
+                let productPrice = $('#product-price');
+                let productInStock = $('#product-in-stock');
+
                 productImage.prop('src', `${imagesPath}${this.product.id}.jpeg`);
+                productTitle.html(this.product.title);
+                productCategory.html(this.product.subCategory);
+                productPrice.html(`${this.product.price} €`);
+                productInStock.html(`${this.product.inStock} Artikel verfügbar`);
+
+            }); 
+
+            $('.dropdown-item').on('click', (e) => {
+                const chosenQuantityValue = $(e.currentTarget).html();
+                $('#dropdown-product-quantity').html(chosenQuantityValue);
             });
 
         });
@@ -28,5 +46,7 @@ class ProductPage extends Page {
 
     async loadProductData() {
         this.product = await this.productDatabaseService.getProductById(this.productId);
+        this.product.price = this.product.price.replace('.', ',');
+        console.log(this.product.price)
     }
 }

@@ -1,10 +1,46 @@
-<div class="container">
+<div class="container mt-5">
     <div class="row">
         <div class="col">
-            <img id="productImage" src="" alt="..." style="max-width: 500px;">
         </div>
         <div class="col">
-            col1
+
         </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <img id="product-image" src="" alt="..." style="max-width: inherit;">
+        </div>
+        <div class="col-sm-8 ps-5">
+            <p id="product-title" class="fs-2 mb-1 text-break"></p>
+            <p id="product-category" class="fw-light fs-5 ps-1 text-muted"></p>
+            <p id="product-price" class="fw-bolder fs-1 ms-2 mb-0" style="color: #023F86;"></p>
+            <p id="product-in-stock" class="ms-3 fw-light text-secondary" style="font-size: 0.8em;"></p>
+            <div class="mt-5">
+                <div class="dropdown ms-3 me-3" style="display: inline-block; min-width: 57px;">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown-product-quantity"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                    1
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">1</a></li>
+                        <li><a class="dropdown-item" href="#">2</a></li>
+                        <li><a class="dropdown-item" href="#">3</a></li>
+                        <li><a class="dropdown-item" href="#">4</a></li>
+                        <li><a class="dropdown-item" href="#">5</a></li>
+                        <li><a class="dropdown-item" href="#">6</a></li>
+                        <li><a class="dropdown-item" href="#">7</a></li>
+                        <li><a class="dropdown-item" href="#">8</a></li>
+                        <li><a class="dropdown-item" href="#">9</a></li>
+                        <li><a class="dropdown-item" href="#">10</a></li>
+                    </ul>
+                </div>
+                <button style="display: inline-block; width: 300px; height: fit-content; padding-top: 1px" type="button" class="btn btn-success">
+                    <i class="bi bi-cart-check-fill me-1" style="font-size: larger;"></i> In den Warenkorb
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">col-sm</div>
     </div>
 </div>
