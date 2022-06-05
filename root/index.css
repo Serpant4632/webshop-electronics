@@ -15,4 +15,7 @@ body > * {
   box-shadow: 0 5px 10px silver;
 } 
 
-
+#footer * {
+  color: #f8f9fa;
+  font-weight: 300;
+}
