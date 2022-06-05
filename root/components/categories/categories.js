@@ -78,7 +78,6 @@ class Categories {
 
             $('a.list-item-subcategory').on('click', (el) => {
                 const clickedElement = this.allProducts.find((p) => p.title === el.currentTarget.innerHTML);
-                console.log(clickedElement)
                 if (this.onClickCallback) {
                     this.onClickCallback('productPage', clickedElement.id);
                 }

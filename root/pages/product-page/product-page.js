@@ -24,7 +24,8 @@ class ProductPage extends Page {
                 $('#product-image').prop('src', `${imagesPath}${this.product.id}.jpeg`);
                 $('#product-title').html(this.product.title);
                 $('#product-category').html(this.product.subCategory);
-                $('#product-price').html(`${this.product.price.replace('.', ',')} €`);
+                const productPrice = parseFloat(this.product.price).toFixed(2).replace('.', ',');
+                $('#product-price').html(`${productPrice} €`);
                 $('#product-in-stock').html(`${this.product.inStock} Artikel verfügbar`);
                 $('#product-description').html(this.product.description);
             }); 
@@ -42,7 +43,6 @@ class ProductPage extends Page {
                 shoppingCartProducts.push(this.product);
                 localStorage.setItem('shopping-cart-products', JSON.stringify(shoppingCartProducts));
                 this.renderNavShoppingCart();
-                console.log( JSON.parse(localStorage.getItem('shopping-cart-products')));
             });
 
         });
