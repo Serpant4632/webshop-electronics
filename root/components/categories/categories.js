@@ -20,7 +20,6 @@ class Categories {
             this.loadCategoryData();
             this.setupListeners();
 
-
         });
     }
 
@@ -34,13 +33,11 @@ class Categories {
         const currentCatItems = this.allProducts.filter((el) => el.category === elementCategory);
         const subCatRow = $('#subcategory-row');
         let subCategoryCol = $('.col.col-subcategory').clone();
-        const headingSubCat = $('.heading-subcategory');
-        const productListItem = $('.list-item-subcategory');
 
-        if($(element.currentTarget).hasClass('activeCategory')) {
+        if ($(element.currentTarget).hasClass('activeCategory')) {
             return;
         }
-        else{
+        else {
             $('.category-btn').removeClass('activeCategory');
             $('.col.col-subcategory').slice(1).remove();
             $('.col.col-subcategory').find('.heading-subcategory').html('');
@@ -49,7 +46,7 @@ class Categories {
             subCategoryCol = $('.col.col-subcategory');
         }
         $('.col.col-subcategory').remove();
-        
+
         const currentCatAndSubCat = this.subCategoriesInCategories.find((el) => el.category === elementCategory);
 
         currentCatAndSubCat['subCategories'].forEach((subCat) => {
@@ -79,10 +76,19 @@ class Categories {
             $('.category-btn span').not($(e.currentTarget).children('span')).removeClass('category-span');
             $(e.currentTarget).children('span').addClass('category-span');
 
+            $('a.list-item-subcategory').on('click', (el) => {
+                const clickedElement = this.allProducts.find((p) => p.title === el.currentTarget.innerHTML);
+                console.log(clickedElement)
+                if (this.onClickCallback) {
+                    this.onClickCallback('productPage', clickedElement.id);
+                }
+                collapse.collapse('toggle');
+            });
         });
         categoryBtn.on('click', () => {
             collapse.collapse('toggle');
         });
+
 
         $('#navigation').on('mousemove', () => {
             collapse.collapse('hide');
@@ -93,6 +99,5 @@ class Categories {
             $('.category-btn span').removeClass('category-span');
         });
 
-        
     }
 }
