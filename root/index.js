@@ -4,6 +4,8 @@ $(() => {
     registerPages();
     registerServices();
 
+    setupLocalStorage();
+
     const navigation = new Navigation(navigatePage);
     navigation.render('#navigation');
 
@@ -18,8 +20,16 @@ $(() => {
 
 });
 
-    // second parameter id (can be productId) for displaying productData when ProductPage is called
-    // second parameter id (can be userId) when MyAccount is called
+function setupLocalStorage() {
+    if (typeof (Storage) !== "undefined") {
+        let shoppingCartProducts = JSON.stringify(localStorage.getItem('shopping-cart-products'));
+        if (shoppingCartProducts == null)
+            localStorage.setItem('shopping-cart-products', JSON.stringify([]));
+    }
+}
+
+// second parameter id (can be productId) for displaying productData when ProductPage is called
+// second parameter id (can be userId) when MyAccount is called
 function navigatePage(pageName, id) {
     console.log('navigate to page', pageName);
     const pages = {

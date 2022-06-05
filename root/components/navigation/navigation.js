@@ -32,6 +32,8 @@ class Navigation {
                 
             });
 
+            this.renderNavShoppingCart();
+
             const searchbar = $('#sSearch');
             
             searchbar.on('input', (e) => {
@@ -47,6 +49,19 @@ class Navigation {
                 searchbarContent.render('#content');
             });
         });
+    }
+
+    renderNavShoppingCart() {
+        let shoppingCartProducts = JSON.parse(localStorage.getItem('shopping-cart-products'));
+        if(shoppingCartProducts && 0 < shoppingCartProducts.length){
+            $('#nav-badge-shopping-cart').html(shoppingCartProducts.length.toString());
+            let totalPriceOfSC = 0;
+            shoppingCartProducts.forEach((p) => {
+                totalPriceOfSC += parseFloat(p.price);
+            });
+            const strTotalPriceOfSC = totalPriceOfSC.toFixed(2).replace('.', ',');
+            $('#nav-price-shopping-cart').html(`${strTotalPriceOfSC}€`);
+        }
     }
 }
 

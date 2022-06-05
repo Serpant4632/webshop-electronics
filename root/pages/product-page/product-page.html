@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <div class="col-sm-4">
-            <img id="product-image" src="" alt="..." style="max-width: inherit;">
+            <img id="product-image" src="" alt="...">
         </div>
         <div class="col-sm-8 ps-5">
             <p id="product-title" class="fs-2 mb-1 text-break"></p>
@@ -34,7 +34,7 @@
                         <li><button class="dropdown-item">10</button></li>
                     </ul>
                 </div>
-                <button id="btn-in-shopping-cart" type="button" class="btn btn-success" data-bs-toggle="offcanvas"
+                <button id="btn-to-shopping-cart" type="button" class="btn btn-success" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvas-shopping-cart" aria-controls="offcanvas-shopping-cart">
                     <i class="bi bi-cart-check-fill me-1"></i> In den Warenkorb
                 </button>
@@ -45,36 +45,30 @@
         <div class="col-sm">
             <p class="fs-2 mt-2">Artikelbeschreibung</p>
             <p id="product-description"></p>
-            <!-- <p>afsdöljfdksajökldjsfjklsdflkjaslöfadskj asdjlö fldöjf asjdlöf sadjlöf dsajklf dslöf ajlkdf jkldös fjklas fsajk fkjldsa fjklsajfölasdjaksld kjldsa fjklds jkldsa fkjlds jkldsf jkldsaf askdlfj sadkjf asjdlöf jkldsaf jlkdsa fjklsaf lkjdsa fjkld fjkldsa fjklds fdkjlda fjklds fkjls fjklad fjkls kjlfasd jkldsfa fkjldsf kjas fjkldsö fjklaajfölasdjaksld kjldsa fjklds jkldsa fkjlds jkldsf jkldsaf askdlfj sadkjf asjdlöf jkldsaf jlkdsa fjklsaf lkjdsa fjkld fjkldsa fjklds fdkjlda fjklds fkjls fjklad fjkls kjlfasd jkldsfa fkjldsf kjas fjkldsö fjklaajfölasdjaksld kjldsa fjklds jkldsa fkjlds jkldsf jkldsaf askdlfj sadkjf asjdlöf jkldsaf jlkdsa fjklsaf lkjdsa fjkld fjkldsa fjklds fdkjlda fjklds fkjls fjklad fjkls kjlfasd jkldsfa fkjldsf kjas fjkldsö fjklaajfölasdjaksld kjldsa fjklds jkldsa fkjlds jkldsf jkldsaf askdlfj sadkjf asjdlöf jkldsaf jlkdsa fjklsaf lkjdsa fjkld fjkldsa fjklds fdkjlda fjklds fkjls fjklad fjkls kjlfasd jkldsfa fkjldsf kjas fjkldsö fjklaajfölasdjaksld kjldsa fjklds jkldsa fkjlds jkldsf jkldsaf askdlfj sadkjf asjdlöf jkldsaf jlkdsa fjklsaf lkjdsa fjkld fjkldsa fjklds fdkjlda fjklds fkjls fjklad fjkls kjlfasd jkldsfa fkjldsf kjas fjkldsö fjkla</p> -->
         </div>
     </div>
 </div>
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-shopping-cart" aria-labelledby="offcanvasExampleLabel"
-    style="width: 500px;">
-    <!-- <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div> -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-shopping-cart" >
     <div class="offcanvas-body">
         <div class="row mt-3">
             <div class="col">
-                <i class="bi bi-check-circle me-2 text-success fs-5" style="display: inline-block;"></i>
-                <p style="display: inline-block;">Produkt wurde zum Warenkorb hinzugefügt</p>
+                <i class="bi bi-check-circle me-2 text-success fs-5 d-inline-block"></i>
+                <p class="d-inline-block">Produkt wurde zum Warenkorb hinzugefügt</p>
             </div>
         </div>
         <div class="row">
             <div class="col-4">
-                <img id="product-image-in-shopping-cart" alt="..." style="max-width: inherit;">
+                <img id="product-image-in-shopping-cart" alt="...">
             </div>
             <div class="col-8">
-                <p id="in-shopping-cart-product-title" style="font-size: 0.9em;"></p>
+                <p id="in-shopping-cart-product-title"></p>
             </div>
         </div>
         <div class="row mt-3">
             <div class="text-center">
-                <button type="button" class="btn btn-outline-secondary block me-1" style="display: inline-block; width: calc(50% - 12px);">Weiter einkaufen</button>
-                <button type="button" class="btn btn-success ms-1" style="display: inline-block; width: calc(50% - 12px);">Zum Warenkorb</button>
+                <button type="button" class="offcnv-btn btn btn-outline-secondary block me-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-shopping-cart">Weiter einkaufen</button>
+                <button type="button" class="offcnv-btn btn btn-success ms-1">Zum Warenkorb</button>
             </div>
         </div>
     </div>

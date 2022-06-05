@@ -30,6 +30,13 @@
     z-index: 100;
 }
 
+#nav-badge-shopping-cart {
+    font-size: 8px; 
+    position: absolute; 
+    top: 0; 
+    right: 0;
+}
+
 .flex-container {
     display: flex;
     flex: 0 0 100%;

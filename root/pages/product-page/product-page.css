@@ -25,3 +25,20 @@
 #btn-in-shopping-cart i {
     font-size: larger;
 }
+
+.offcnv-btn {
+    display: inline-block; 
+    width: calc(50% - 12px);
+}
+
+#offcanvas-shopping-cart {
+    width: 500px;
+}
+
+#product-image-in-shopping-cart, #product-image {
+    max-width: inherit;
+}
+
+#in-shopping-cart-product-title {
+    font-size: 0.9em;
+}
