@@ -33,6 +33,7 @@ class ProductPage extends Page {
                 productCategory.html(this.product.subCategory);
                 productPrice.html(`${this.product.price} €`);
                 productInStock.html(`${this.product.inStock} Artikel verfügbar`);
+                $('#product-description').html(this.product.description);
 
             }); 
 
