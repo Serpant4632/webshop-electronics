@@ -21,10 +21,9 @@ $(() => {
 });
 
 function setupLocalStorage() {
-    if (typeof(Storage) !== "undefined") {
+    if (typeof (Storage) !== "undefined") {
         let shoppingCartProducts = JSON.stringify(localStorage.getItem('shopping-cart-products'));
-        console.log(shoppingCartProducts)
-        if (shoppingCartProducts)
+        if (shoppingCartProducts == 'null')
             localStorage.setItem('shopping-cart-products', JSON.stringify([]));
     }
 }
