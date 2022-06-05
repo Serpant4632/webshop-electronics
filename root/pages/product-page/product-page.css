@@ -1,0 +1,27 @@
+.quantity-dropdown-item {
+    width: 57px;
+}
+
+#product-price {
+    color: #023F86;
+}
+
+#product-in-stock {
+    font-size: 0.8em;
+}
+
+#dropdown-product-quantity-container {
+    display: inline-block;
+    min-width: 57px;
+}
+
+#btn-in-shopping-cart {
+    display: inline-block;
+    width: 300px;
+    height: fit-content;
+    padding-top: 1px;
+}
+
+#btn-in-shopping-cart i {
+    font-size: larger;
+}

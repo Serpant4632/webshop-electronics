@@ -13,34 +13,65 @@
         <div class="col-sm-8 ps-5">
             <p id="product-title" class="fs-2 mb-1 text-break"></p>
             <p id="product-category" class="fw-light fs-5 ps-1 text-muted"></p>
-            <p id="product-price" class="fw-bolder fs-1 ms-2 mb-0" style="color: #023F86;"></p>
-            <p id="product-in-stock" class="ms-3 fw-light text-secondary" style="font-size: 0.8em;"></p>
+            <p id="product-price" class="fw-bolder fs-1 ms-2 mb-0"></p>
+            <p id="product-in-stock" class="ms-3 fw-light text-secondary"></p>
             <div class="mt-5">
-                <div class="dropdown ms-3 me-3" style="display: inline-block; min-width: 57px;">
+                <div id="dropdown-product-quantity-container" class="dropdown ms-3 me-3">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown-product-quantity"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                    1
+                        1
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">1</a></li>
-                        <li><a class="dropdown-item" href="#">2</a></li>
-                        <li><a class="dropdown-item" href="#">3</a></li>
-                        <li><a class="dropdown-item" href="#">4</a></li>
-                        <li><a class="dropdown-item" href="#">5</a></li>
-                        <li><a class="dropdown-item" href="#">6</a></li>
-                        <li><a class="dropdown-item" href="#">7</a></li>
-                        <li><a class="dropdown-item" href="#">8</a></li>
-                        <li><a class="dropdown-item" href="#">9</a></li>
-                        <li><a class="dropdown-item" href="#">10</a></li>
+                        <li><button class="dropdown-item">1</button></li>
+                        <li><button class="dropdown-item">2</button></li>
+                        <li><button class="dropdown-item">3</button></li>
+                        <li><button class="dropdown-item">4</button></li>
+                        <li><button class="dropdown-item">5</button></li>
+                        <li><button class="dropdown-item">6</button></li>
+                        <li><button class="dropdown-item">7</button></li>
+                        <li><button class="dropdown-item">8</button></li>
+                        <li><button class="dropdown-item">9</button></li>
+                        <li><button class="dropdown-item">10</button></li>
                     </ul>
                 </div>
-                <button style="display: inline-block; width: 300px; height: fit-content; padding-top: 1px" type="button" class="btn btn-success">
-                    <i class="bi bi-cart-check-fill me-1" style="font-size: larger;"></i> In den Warenkorb
+                <button id="btn-in-shopping-cart" type="button" class="btn btn-success" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvas-shopping-cart" aria-controls="offcanvas-shopping-cart">
+                    <i class="bi bi-cart-check-fill me-1"></i> In den Warenkorb
                 </button>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-sm">col-sm</div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-shopping-cart" aria-labelledby="offcanvasExampleLabel"
+    style="width: 500px;">
+    <!-- <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div> -->
+    <div class="offcanvas-body">
+        <div class="row mt-3">
+            <div class="col">
+                <i class="bi bi-check-circle me-2 text-success fs-5" style="display: inline-block;"></i>
+                <p style="display: inline-block;">Produkt wurde zum Warenkorb hinzugefügt</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <img id="product-image-in-shopping-cart" alt="..." style="max-width: inherit;">
+            </div>
+            <div class="col-8">
+                <p id="in-shopping-cart-product-title" style="font-size: 0.9em;"></p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="text-center">
+                <button type="button" class="btn btn-outline-secondary block" style="display: inline-block; width: calc(50% - 12px);">Weiter einkaufen</button>
+                <button type="button" class="btn btn-success" style="display: inline-block; width: calc(50% - 12px);">Zum Warenkorb</button>
+            </div>
+        </div>
     </div>
 </div>

@@ -41,6 +41,11 @@ class ProductPage extends Page {
                 $('#dropdown-product-quantity').html(chosenQuantityValue);
             });
 
+            $('#btn-in-shopping-cart').on('click',() => {
+                $('#product-image-in-shopping-cart').prop('src', `${imagesPath}${this.product.id}.jpeg`);
+                $('#in-shopping-cart-product-title').html(this.product.title);
+            });
+
         });
     }
 
