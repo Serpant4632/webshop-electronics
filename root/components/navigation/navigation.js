@@ -53,14 +53,18 @@ class Navigation {
 
     renderNavShoppingCart() {
         let shoppingCartProducts = JSON.parse(localStorage.getItem('shopping-cart-products'));
-        if(shoppingCartProducts && 0 < shoppingCartProducts.length){
-            $('#nav-badge-shopping-cart').html(shoppingCartProducts.length.toString());
+        if (shoppingCartProducts && 0 < shoppingCartProducts.length) {
             let totalPriceOfSC = 0;
+            let totalQuantity = 0;
             shoppingCartProducts.forEach((p) => {
-                totalPriceOfSC += parseFloat(p.price);
+                console.log(p)
+                totalPriceOfSC += parseFloat(p.price) * parseFloat(p.quantity);
+                totalQuantity += parseFloat(p.quantity);
             });
             const strTotalPriceOfSC = totalPriceOfSC.toFixed(2).replace('.', ',');
             $('#nav-price-shopping-cart').html(`${strTotalPriceOfSC}€`);
+            
+            $('#nav-badge-shopping-cart').html(totalQuantity);
         }
     }
 }

@@ -3,6 +3,7 @@ class ProductPage extends Page {
     productId;
     product;
     productDatabaseService;
+    chosenQuantityValue = 1;
     constructor(onClickCallback, pId) {
         super('product-page');
         this.onClickCallback = onClickCallback;
@@ -41,8 +42,8 @@ class ProductPage extends Page {
             });
 
             $('.dropdown-item').on('click', (e) => {
-                chosenQuantityValue = $(e.currentTarget).html();
-                $('#dropdown-product-quantity').html(chosenQuantityValue);
+                this.chosenQuantityValue = $(e.currentTarget).attr('value');
+                $('#dropdown-product-quantity').html(this.chosenQuantityValue);
             });
 
             $('#btn-to-shopping-cart').on('click', () => {
@@ -57,12 +58,13 @@ class ProductPage extends Page {
 
                 $('#warning-quantity').addClass('d-none');
                 canvasSC.show();
-
+console.log(this.chosenQuantityValue)
                 let shoppingCartProducts = JSON.parse(localStorage.getItem('shopping-cart-products'));
                 const scProduct = {
                     ...this.product,
-                    quantity: chosenQuantityValue
+                    quantity: parseFloat(this.chosenQuantityValue)
                 };
+                console.log(scProduct)
                 shoppingCartProducts.push(scProduct);
                 localStorage.setItem('shopping-cart-products', JSON.stringify(shoppingCartProducts));
                 this.renderNavShoppingCart();
@@ -77,14 +79,17 @@ class ProductPage extends Page {
     renderNavShoppingCart() {
         let shoppingCartProducts = JSON.parse(localStorage.getItem('shopping-cart-products'));
         if (shoppingCartProducts && 0 < shoppingCartProducts.length) {
-            $('#nav-badge-shopping-cart').html(shoppingCartProducts.length.toString());
             let totalPriceOfSC = 0;
+            let totalQuantity = 0;
             shoppingCartProducts.forEach((p) => {
-                totalPriceOfSC += parseFloat(p.price);
+                console.log(p)
+                totalPriceOfSC += parseFloat(p.price) * parseFloat(p.quantity);
+                totalQuantity += parseFloat(p.quantity);
             });
             const strTotalPriceOfSC = totalPriceOfSC.toFixed(2).replace('.', ',');
             $('#nav-price-shopping-cart').html(`${strTotalPriceOfSC}€`);
-
+            
+            $('#nav-badge-shopping-cart').html(totalQuantity);
         }
     }
 }
