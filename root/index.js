@@ -33,11 +33,11 @@ function setupLocalStorage() {
 function navigatePage(pageName, id) {
     console.log('navigate to page', pageName);
     const pages = {
-        home: new Home(),
+        home: new Home(navigatePage),
         myAccount: new MyAccount(),
-        shoppingCart: new ShoppingCart(),
+        shoppingCart: new ShoppingCart(navigatePage),
         wishList: new WishList(),
-        productPage: new ProductPage(id)
+        productPage: new ProductPage(navigatePage, id)
     };
     pages[pageName].render('#content');
 }
