@@ -43,7 +43,6 @@ class Navigation {
 
                     }
                 });
-                // console.log(data);
                 
                 const searchbarContent = new SearchbarContent(navigatePage);
                 searchbarContent.render('#content');
@@ -57,7 +56,6 @@ class Navigation {
             let totalPriceOfSC = 0;
             let totalQuantity = 0;
             shoppingCartProducts.forEach((p) => {
-                console.log(p)
                 totalPriceOfSC += parseFloat(p.price) * parseFloat(p.quantity);
                 totalQuantity += parseFloat(p.quantity);
             });

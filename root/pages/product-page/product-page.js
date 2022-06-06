@@ -58,13 +58,11 @@ class ProductPage extends Page {
 
                 $('#warning-quantity').addClass('d-none');
                 canvasSC.show();
-console.log(this.chosenQuantityValue)
                 let shoppingCartProducts = JSON.parse(localStorage.getItem('shopping-cart-products'));
                 const scProduct = {
                     ...this.product,
                     quantity: parseFloat(this.chosenQuantityValue)
                 };
-                console.log(scProduct)
                 shoppingCartProducts.push(scProduct);
                 localStorage.setItem('shopping-cart-products', JSON.stringify(shoppingCartProducts));
                 this.renderNavShoppingCart();
@@ -82,7 +80,6 @@ console.log(this.chosenQuantityValue)
             let totalPriceOfSC = 0;
             let totalQuantity = 0;
             shoppingCartProducts.forEach((p) => {
-                console.log(p)
                 totalPriceOfSC += parseFloat(p.price) * parseFloat(p.quantity);
                 totalQuantity += parseFloat(p.quantity);
             });
