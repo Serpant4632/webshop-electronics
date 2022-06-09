@@ -37,7 +37,8 @@ function navigatePage(pageName, id) {
         myAccount: new MyAccount(),
         shoppingCart: new ShoppingCart(navigatePage),
         wishList: new WishList(),
-        productPage: new ProductPage(navigatePage, id)
+        productPage: new ProductPage(navigatePage, id),
+        impressum: new Impressum(navigatePage)
     };
     pages[pageName].render('#content');
 }
@@ -50,7 +51,7 @@ function registerComponents() {
 }
 
 function registerPages() {
-    const pages = ['home', 'wish-list', 'my-account', 'shopping-cart', 'product-page'];
+    const pages = ['home', 'wish-list', 'my-account', 'shopping-cart', 'product-page', 'impressum'];
     const links = pages.map((c) => $(`<script src="pages/${c}/${c}.js"></script>`));
     const stylesheets = pages.map((c) => $(`<link rel="stylesheet" href="pages/${c}/${c}.css">`));
     $('head').prepend(links, stylesheets);

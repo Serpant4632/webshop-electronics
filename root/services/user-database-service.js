@@ -32,10 +32,10 @@ class UserDatabaseService {
         });
     }
 
-    async patchDatabaseContent(updatedContent) {
-        await fetch(baseUrl, {
-            method: 'PATCH',
-            body: JSON.stringify(updatedContent),
-        });
-    }
+    // async patchDatabaseContent(updatedContent) {
+    //     await fetch(baseUrl, {
+    //         method: 'PATCH',
+    //         body: JSON.stringify(updatedContent),
+    //     });
+    // }
 }

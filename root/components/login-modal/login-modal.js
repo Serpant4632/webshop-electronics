@@ -9,5 +9,14 @@ class LoginModal {
             const loginModal = new bootstrap.Modal('#loginModal', {});
             loginModal.show();
         });
+        $('#btn-sign-up').on('click', () => {
+            let signin = {
+                email: $('#form-email').val(),
+                password: $('#form-password').val(),
+                login: $('#btn-sign-in').val()
+            }
+            console.log(signin);
+            this.userDatabaseService.postDatabaseContent(signin);
+        });
     }
 }
