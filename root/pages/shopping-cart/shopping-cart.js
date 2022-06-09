@@ -13,6 +13,5 @@ class ShoppingCart extends Page {
 
     getShoppingCartProducts() {
         this.scProducts = JSON.parse(localStorage.getItem('shopping-cart-products'));
-        console.log(this.scProducts)
     }
 }
