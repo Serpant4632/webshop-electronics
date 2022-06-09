@@ -1,3 +1,7 @@
 div#footer-container {
     background-color: #0155a3;
 }
+
+div #impressum{
+    cursor: pointer;
+}

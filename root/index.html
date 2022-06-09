@@ -1,14 +1,19 @@
 <!-- starts session  -->
-<!-- <?php 
-    session_start();
-?> -->
+<?php 
+
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+    $userID = $_SESSION
+}
+ ?>
 
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8" />
-    <title>Webshop-Electronics</title>
+    
+    <head>
+        <meta charset="utf-8" />
+        <title>Webshop-Electronics</title>
     <!-- Latest compiled and minified BS5 CSS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

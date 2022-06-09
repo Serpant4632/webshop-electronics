@@ -1,4 +1,5 @@
 const imagesPath = '/resources/images/image-';
+let loggedIn = null;
 $(() => {
     registerComponents();
     registerPages();
