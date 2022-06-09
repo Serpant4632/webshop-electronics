@@ -28,26 +28,26 @@ class ProductDatabaseService {
         
     }
 
-    async postProduct(newContent) {
-        console.log('post database content', newContent);
-        await fetch(this.baseUrl, {
-            method: 'POST',
-            body: JSON.stringify(newContent),
-        });
-    }
+    // async postProduct(newContent) {
+    //     console.log('post database content', newContent);
+    //     await fetch(this.baseUrl, {
+    //         method: 'POST',
+    //         body: JSON.stringify(newContent),
+    //     });
+    // }
 
-    async deleteProduct(id) {
-        await fetch(`${this.baseUrl}?id=${id}`, {
-            method: 'DELETE',
-        });
-    }
+    // async deleteProduct(id) {
+    //     await fetch(`${this.baseUrl}?id=${id}`, {
+    //         method: 'DELETE',
+    //     });
+    // }
 
-    async patchProduct(updatedContent) {
-        await fetch(this.baseUrl, {
-            method: 'PATCH',
-            body: JSON.stringify(updatedContent),
-        });
-    }
+    // async patchProduct(updatedContent) {
+    //     await fetch(this.baseUrl, {
+    //         method: 'PATCH',
+    //         body: JSON.stringify(updatedContent),
+    //     });
+    // }
 
     async getCategories() {
         const response = await fetch(`${this.baseUrl}?category`);

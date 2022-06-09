@@ -6,7 +6,7 @@ class Footer {
 
     render(parentSelector) {
         $(parentSelector).load('./components/footer/footer.html', () => {
-            $('.nav-item').on('click', (e) => {
+            $('.footer-item').on('click', (e) => {
                 console.log(`${e.currentTarget.id} was clicked`);
                 // this.navigateTo(e.target.id);
                 if (this.onClickCallback)
