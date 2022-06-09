@@ -7,13 +7,12 @@
     <div class="flex-container">
         <div class="flex-2">
             <a href="./">
-                <img class="nav-item" id="home" src="../../../resources/icons/Logo.svg"
-                    style="width:100px;height:100%;"></img>
+                <img class="nav-item" id="home" src="../../../resources/icons/Logo.svg"></img>
             </a>
         </div>
-        <div class="flex-3 margin-auto" style="padding-left: 100px;">
+        <div id="searchbar-container" class="flex-3 margin-auto">
 
-            <form action="/search" method="get" id="searchbar-form" style="text-align: center;">
+            <form action="/search" method="get" id="searchbar-form" class="text-center">
                 <div class="">
                     <input type="search" name="sSearch" id="sSearch" class="" autocomplete="off" autocapitalize="off"
                         placeholder="Suchbegriff oder Produkt eingeben..." maxlength="60" value="">
@@ -27,7 +26,7 @@
             <ul class="navbar-right-elements no-margin float-right">
                 <li>
                     <div>
-                        <a class="nav-item nav-link" id="wishList" href="javascript:void(0)">
+                        <a class="nav-item nav-link" id="wishList" href="">
                             <i class="bi bi-heart"></i>
                             <span>Merkzettel</span>
                         </a>
@@ -35,16 +34,12 @@
                 </li>
                 <li>
                     <div class="btn-group">
-                        <!-- class "dropdown-toggle" macht das Zeichen neben "Mein Konto" -->
                         <a id="myAccount" type="button" data-bs-toggle="dropdown" class="nav-item nav-link"
-                            href="javascript:void(0)">
+                            href="">
                             <i class="bi bi-person"></i>
                             <span class="text-nowrap">Mein Konto</span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="my-account" style="width: 200px;">
-                            <!-- <li style="padding-left: 20px; color: #0155a3;">
-                                <h5 class="">Mein Konto</h5>
-                            </li> -->
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="my-account">
                             <li class="sign-in-buttons">
                                 <button id="my-account-sign-in-btn" class="btn btn-primary" type="button">
                                     Anmelden
@@ -60,13 +55,9 @@
 
                 </li>
                 <li class="margin-auto">
-                    <div style="position: relative;">
+                    <div class="position-relative">
                         <div id="nav-shopping-cart">
-                            <a id="shoppingCart" class="nav-item nav-link" href="javascript:void(0)">
-                                <!-- <span
-                                class="translate-middle badge rounded-pill bg-danger" style="left: 0px;">
-                                9
-                            </span> -->
+                            <a id="shoppingCart" class="nav-item nav-link" href="">
                                 <span id="nav-badge-shopping-cart" class="bg-success rounded-pill badge"></span>
                                 <i class="bi bi-cart3"></i>
                                 <span id="nav-price-shopping-cart" class="text-wrap">0,00€</span>

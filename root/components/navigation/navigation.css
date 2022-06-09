@@ -140,26 +140,6 @@ div #btn-sign-in {
     float: right;
 }
 
-.flex-1 {
-    flex: 1;
-}
-
-.flex-2 {
-    flex: 2;
-}
-
-.flex-3 {
-    flex: 3;
-}
-
-.flex-5 {
-    flex: 5;
-}
-
-#text-align-center {
-    text-align: center;
-}
-
 .sign-in-buttons button {
     height: 40px; 
     width: 150px;
@@ -169,5 +149,10 @@ div #btn-sign-in {
     margin: 8px 25px;
 }
 
+img.nav-item {
+    width: 100px;
+}
 
-@media only screen and (max-width: 768px) {}
+#searchbar-container {
+    padding-left: 100px;
+}
