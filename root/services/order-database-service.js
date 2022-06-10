@@ -1,35 +1,27 @@
-const baseUrl = 'http://localhost/backend-webshop-electronics/api/order_database.php';
+class OrderDatabaseService {
 
-async function getDatabaseContent() {
-    const response = await fetch(baseUrl);
-    const result = await response.json();
-    return result;
+    baseUrl = 'http://localhost/backend-webshop-electronics/api/order_database.php';
+
+    constructor() {
+
+    }
+
+    async getDatabaseContent() {
+        const response = await fetch(this.baseUrl);
+        const result = await response.json();
+        return result;
+    }
+
+    async getOrderById(id) {
+        const response = await fetch(`${this.baseUrl}?id=${id}`);
+        const result = await response.json();
+        return result;
+    }
+
+    async getOrdersByCustomerId(customerID) {
+        const response = await fetch(`${this.baseUrl}?customerID=${customerID}`);
+        const result = await response.json();
+        return result;
+    }
+
 }
-
-async function getDatabaseContentById(id) {
-    const response = await fetch(`${baseUrl}?id=${id}`);
-    // const test = await fetch('' + baseUrl + '?id=' + id); // equivalent
-    const result = await response.json();
-    return result;
-}
-
-// async function postDatabaseContent(newContent) {
-//     console.log('post database content', newContent);
-//     await fetch(baseUrl, {
-//         method: 'POST',
-//         body: JSON.stringify(newContent),
-//     });
-// }
-
-// async function deleteDatabaseContent(id) {
-//     await fetch(`${baseUrl}?id=${id}`, {
-//         method: 'DELETE',
-//     });
-// }
-
-// async function patchDatabaseContent(updatedContent) {
-//     await fetch(baseUrl, {
-//         method: 'PATCH',
-//         body: JSON.stringify(updatedContent),
-//     });
-// }

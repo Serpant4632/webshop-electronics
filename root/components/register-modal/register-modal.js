@@ -12,22 +12,19 @@ class RegisterModal {
         $(parentSelector).load('./components/register-modal/register-modal.html', () => {
             const registerModal = new bootstrap.Modal('#registerModal', {});
             registerModal.show();
-        });
-        $('#btn-sign-up').on('click', () => {
-            let newAccount = {
-                firstName: $('#form-first-name').html(),
-                lastName: $('#form-last-name').html(),
-                email: $('#form-email').html(),
-                address: $('#form-address').html(),
-                password: $('#form-password').html(),
-                repPassword: $('#form-rep-password').html(),
-                signup: $('#btn-sign-up').html()
-            }
-            console.log(newAccount.signup);
-            console.log(newAccount.firstName);
-            console.log(newAccount.lastName);
-            console.log(newAccount.email);
-            this.userDatabaseService.postDatabaseContent(newAccount);
+            $('#btn-sign-up').on('click', () => {
+                let newAccount = {
+                    firstName: $('#form-first-name').val(),
+                    lastName: $('#form-last-name').val(),
+                    email: $('#form-email').val(),
+                    address: $('#form-address').val(),
+                    password: $('#form-password').val(),
+                    repPassword: $('#form-rep-password').val(),
+                    signup: $('#btn-sign-up').html()
+                }
+                console.log(newAccount);
+                this.userDatabaseService.postDatabaseContent(newAccount);
+            });
         });
     }
 }

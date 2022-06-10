@@ -8,10 +8,12 @@
             <div class="modal-body">
                 <form class="px-4 py-3">
                     <div class="mb-3">
-                        <input type="email" class="form-control height-3em" id="form-email" placeholder="E-Mail-Adresse" />
+                        <input type="email" class="form-control height-3em" id="form-email" placeholder="E-Mail-Adresse"
+                            required />
                     </div>
                     <div class="mb-3">
-                        <input type="password" class="form-control height-3em" id="form-password" placeholder="Passwort" />
+                        <input type="password" class="form-control height-3em" id="form-password" placeholder="Passwort"
+                            required />
                     </div>
                     <div id="container-remember-me" class="mb-3">
                         <div class="form-check">
@@ -22,13 +24,13 @@
                         </div>
                     </div>
                     <div>
-                        <button id="btn-sign-in" type="submit" class="btn btn-primary height-3em d-block w-100"
-                            onclick="loginButtonPressed()">Anmelden</button>
+                        <button id="btn-sign-in" type="submit"
+                            class="btn btn-primary height-3em d-block w-100">Anmelden</button>
                     </div>
                 </form>
                 <div class="dropdown-divider"></div>
                 <div id="text-align-center">
-                    <a class="dropdown-item text-primary mt-2 mb-2" href="#">Neu hier? Jetzt
+                    <a class="dropdown-item text-primary mt-2 mb-2 btn-register" href="#" id="my-account-register-btn">Neu hier? Jetzt
                         registrieren!</a>
                     <a class="dropdown-item text-primary mt-2 mb-2" href="#">Passwort vergessen?</a>
                 </div>

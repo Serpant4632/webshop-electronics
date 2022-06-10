@@ -1,4 +1,5 @@
 class UserDatabaseService {
+
     baseUrl = 'http://localhost/backend-webshop-electronics/api/user_database.php';
 
     constructor() {
@@ -6,36 +7,41 @@ class UserDatabaseService {
     }
 
     async getDatabaseContent() {
-        const response = await fetch(baseUrl);
+        const response = await fetch(this.baseUrl);
         const result = await response.json();
         return result;
     }
 
     async getDatabaseContentById(id) {
-        const response = await fetch(`${baseUrl}?id=${id}`);
-        // const test = await fetch('' + baseUrl + '?id=' + id); // equivalent
+        const response = await fetch(`${this.baseUrl}?id=${id}`);
         const result = await response.json();
         return result;
     }
 
     async postDatabaseContent(newContent) {
         console.log('post database content', newContent);
-        await fetch(baseUrl, {
+        const debug = await fetch(this.baseUrl, {
             method: 'POST',
             body: JSON.stringify(newContent),
-        });
+        }).then(this.handleErrors)
+            .then(function (response) {
+                console.log('user created');
+            }).catch(function (error) {
+                console.log(error);
+            });
+        return debug;
     }
 
     async deleteDatabaseContent(id) {
-        await fetch(`${baseUrl}?id=${id}`, {
+        await fetch(`${this.baseUrl}?id=${id}`, {
             method: 'DELETE',
         });
     }
 
-    // async patchDatabaseContent(updatedContent) {
-    //     await fetch(baseUrl, {
-    //         method: 'PATCH',
-    //         body: JSON.stringify(updatedContent),
-    //     });
-    // }
+    handleErrors(response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response;
+    }
 }

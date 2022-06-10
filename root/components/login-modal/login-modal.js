@@ -8,15 +8,26 @@ class LoginModal {
         $(parentSelector).load('./components/login-modal/login-modal.html', () => {
             const loginModal = new bootstrap.Modal('#loginModal', {});
             loginModal.show();
-        });
-        $('#btn-sign-up').on('click', () => {
-            let signin = {
-                email: $('#form-email').val(),
-                password: $('#form-password').val(),
-                login: $('#btn-sign-in').val()
-            }
-            console.log(signin);
-            this.userDatabaseService.postDatabaseContent(signin);
+
+            // try to login
+            $('#btn-sign-up').on('click', () => {
+                let signin = {
+                    email: $('#form-email').val(),
+                    password: $('#form-password').val(),
+                    login: $('#btn-sign-in').html()
+                }
+                console.log(signin);
+                this.userDatabaseService.postDatabaseContent(signin).then(() => {
+                });
+            });
+
+            // open registermodal on btn "noch nicht registriert?"
+            $('.btn-register').on('click', (e) => {
+                console.log(`${e.currentTarget.id} was clicked`);
+                const registerModal = new RegisterModal(this.onClickCallback);
+                registerModal.render($('#modal-container'));
+
+            });
         });
     }
 }

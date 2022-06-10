@@ -1,4 +1,5 @@
 class ProductDatabaseService {
+    
     baseUrl = 'http://localhost/backend-webshop-electronics/api/product_database.php';
 
     constructor() {
@@ -20,35 +21,13 @@ class ProductDatabaseService {
     async getProductByTitle(title) {
         return fetch(`${this.baseUrl}?title=${title}`).then(async(res) => {
             const result = await res.json();
-            // console.log(result);
             return result;
         }).catch((error) => {
             return null;
         });
         
     }
-
-    // async postProduct(newContent) {
-    //     console.log('post database content', newContent);
-    //     await fetch(this.baseUrl, {
-    //         method: 'POST',
-    //         body: JSON.stringify(newContent),
-    //     });
-    // }
-
-    // async deleteProduct(id) {
-    //     await fetch(`${this.baseUrl}?id=${id}`, {
-    //         method: 'DELETE',
-    //     });
-    // }
-
-    // async patchProduct(updatedContent) {
-    //     await fetch(this.baseUrl, {
-    //         method: 'PATCH',
-    //         body: JSON.stringify(updatedContent),
-    //     });
-    // }
-
+    
     async getCategories() {
         const response = await fetch(`${this.baseUrl}?category`);
         const resJson = await response.json();
