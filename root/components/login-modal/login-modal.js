@@ -23,10 +23,10 @@ class LoginModal {
 
             // open registermodal on btn "noch nicht registriert?"
             $('.btn-register').on('click', (e) => {
+                loginModal.dispose();
                 console.log(`${e.currentTarget.id} was clicked`);
                 const registerModal = new RegisterModal(this.onClickCallback);
                 registerModal.render($('#modal-container'));
-
             });
         });
     }

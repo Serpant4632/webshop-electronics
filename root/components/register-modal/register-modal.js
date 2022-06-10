@@ -25,6 +25,14 @@ class RegisterModal {
                 console.log(newAccount);
                 this.userDatabaseService.postDatabaseContent(newAccount);
             });
+
+            // open Sign-In Modal
+            $('.my-account-sign-in-btn').on('click', (e) => {
+                registerModal.dispose();
+                console.log(`${e.currentTarget.id} was clicked`);
+                const loginModal = new LoginModal(this.onClickCallback);
+                loginModal.render($('#modal-container'));
+            });
         });
     }
 }
