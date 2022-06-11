@@ -28,5 +28,5 @@ ul.no-bullets {
 }
 
 .invalid .error{
-    visibility: visible;
+    visibility: collapse;
 }

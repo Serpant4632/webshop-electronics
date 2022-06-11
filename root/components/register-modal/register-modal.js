@@ -55,7 +55,6 @@ class RegisterModal {
                         checkEmail.removeClass('invalid');
                         signInBtn.removeClass('disabled');
                         occupiedEmail.addClass('error');
-
                     }
                 }).catch((error) => {
                 });
@@ -73,6 +72,22 @@ class RegisterModal {
                     signInBtn.removeClass('disabled');
                 }
             });
+
+            const checkPwd = $('#form-password');
+            const checkRepPwd = $('#form-rep-password');
+            const wrongRepPwd = $('#errorPwd');
+            checkRepPwd.on('input', (e) => {
+                if (checkPwd.val() !== checkRepPwd.val()) {
+                    signInBtn.addClass('disabled');
+                    checkRepPwd.addClass('invalid');
+                    wrongRepPwd.removeClass('error');
+                } else {
+                    signInBtn.removeClass('disabled');
+                    checkRepPwd.removeClass('invalid');
+                    wrongRepPwd.addClass('error');
+
+                }
+            })
 
             // post new account and open Login Modal
             const signInBtn = $('#btn-sign-up');
