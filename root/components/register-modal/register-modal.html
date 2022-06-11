@@ -9,35 +9,36 @@
                 <form class="px-4 py-3">
                     <ul class="no-bullets">
                         <li>
-                            <div class="mb-4 d-inline-block float-start">
+                            <div class="mb-4 d-inline-block float-start" id="firstName">
                                 <input type="text" class="form-control height-3em" id="form-first-name"
                                     placeholder="Vorname*" required="true"/>
                             </div>
-                            <div class="mb-4 d-inline-block float-end">
+                            <div class="mb-4 d-inline-block float-end" id="lastName">
                                 <input type="text" class="form-control height-3em" id="form-last-name"
                                     placeholder="Nachname*" required="true"/>
                             </div>
                         </li>
                         <li>
-                            <div class="mb-4">
+                            <div class="mb-4" id="email">
                                 <input type="email" class="form-control height-3em" id="form-email"
                                     placeholder="E-Mail-Adresse*" required="true"/>
+                                <small class="form-text text-muted error" id="errorMsg">Diese E-Mail-Adresse ist vergeben.</small>
                             </div>
                         </li>
                         <li>
-                            <div class="mb-4">
-                                <input type="text" class="form-control height-3em" id="form-address"
+                            <div class="mb-4" id="address">
+                                <input type="text" class="form-control height-3em address" id="form-address"
                                     placeholder="Adresse*" required="true"/>
                             </div>
                         </li>
                         <li>
-                            <div class="mb-4 ">
+                            <div class="mb-4">
                                 <input type="password" class="form-control height-3em" id="form-password"
                                     placeholder="Passwort*" required/>
                             </div>
                         </li>
                         <li>
-                            <div class="mb-4 ">
+                            <div class="mb-4">
                                 <input type="password" class="form-control height-3em" id="form-rep-password"
                                     placeholder="Passwort bestätigen*" required/>
                             </div>

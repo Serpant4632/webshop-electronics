@@ -18,18 +18,35 @@ class UserDatabaseService {
         return result;
     }
 
+    async getEmailBySubstring(substring) {
+        const response = await fetch(`${this.baseUrl}?email=${substring}`);
+        const result = await response;
+        return result;
+    }
+
     async postDatabaseContent(newContent) {
         console.log('post database content', newContent);
-        const debug = await fetch(this.baseUrl, {
+        await fetch(this.baseUrl, {
             method: 'POST',
             body: JSON.stringify(newContent),
-        }).then(this.handleErrors)
+        })
             .then(function (response) {
-                console.log('user created');
-            }).catch(function (error) {
-                console.log(error);
+                return response.json();
+            })
+            .then(function (response) {
+                if (response.success) {
+                    console.log(response);
+                } else {
+                    //here proceses de code if not success response
+                }
+            })
+            .catch(function (error) {
+                console.error(error);
+                //Here is where the error catch and show the error: NetworkError when attempting to fetch resource
             });
-        return debug;
+        const result = await debug.json();
+        console.log(result);
+        // return result;
     }
 
     async deleteDatabaseContent(id) {
@@ -38,10 +55,4 @@ class UserDatabaseService {
         });
     }
 
-    handleErrors(response) {
-        if (!response.ok) {
-            throw Error(response.statusText);
-        }
-        return response;
-    }
 }

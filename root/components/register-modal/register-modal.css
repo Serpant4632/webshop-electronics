@@ -22,3 +22,11 @@ ul.no-bullets {
 .modal-body >* input::-webkit-input-placeholder {
     font-size: 1.1em;
 }
+
+.error {
+    visibility: hidden;
+}
+
+.invalid .error{
+    visibility: visible;
+}
