@@ -73,6 +73,7 @@ class RegisterModal {
                 }
             });
 
+            // validate password
             const checkPwd = $('#form-password');
             const checkRepPwd = $('#form-rep-password');
             const wrongRepPwd = $('#errorPwd');
@@ -102,12 +103,16 @@ class RegisterModal {
                     signup: $('#btn-sign-up').html()
                 }
                 console.log(newAccount);
-                this.userDatabaseService.postDatabaseContent(newAccount);
-
-                // open login model after signup
-                registerModal.dispose();
-                const loginModal = new LoginModal(this.onClickCallback);
-                loginModal.render($('#modal-container'));
+                this.userDatabaseService.postDatabaseContent(newAccount).then((res) => {
+                    if (res.status != '201') {
+                        signInBtn.addClass('disabled');
+                    } else {
+                        // open login model after signup
+                        registerModal.dispose();
+                        const loginModal = new LoginModal(this.onClickCallback);
+                        loginModal.render($('#modal-container'));
+                    }
+                });
             });
 
             // open Sign-In modal via btn and destroy registerModal

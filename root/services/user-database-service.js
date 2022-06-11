@@ -26,27 +26,12 @@ class UserDatabaseService {
 
     async postDatabaseContent(newContent) {
         console.log('post database content', newContent);
-        await fetch(this.baseUrl, {
+        const result = await fetch(this.baseUrl, {
             method: 'POST',
             body: JSON.stringify(newContent),
         })
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (response) {
-                if (response.success) {
-                    console.log(response);
-                } else {
-                    //here proceses de code if not success response
-                }
-            })
-            .catch(function (error) {
-                console.error(error);
-                //Here is where the error catch and show the error: NetworkError when attempting to fetch resource
-            });
-        const result = await debug.json();
         console.log(result);
-        // return result;
+        return result;
     }
 
     async deleteDatabaseContent(id) {

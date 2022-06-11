@@ -12,12 +12,8 @@ class Navigation {
                 console.log(`${e.currentTarget.id} was clicked`);
                 // this.navigateTo(e.target.id);
                 if (this.onClickCallback)
-                    this.onClickCallback(e.currentTarget.id);
+                this.onClickCallback(e.currentTarget.id);
             })
-            // this.navigateTo('home');
-            // if (this.onClickCallback)
-            //     this.onClickCallback('home');
-
 
             // open Sign-In Modal
             $('#my-account-sign-in-btn').on('click', (e) => {

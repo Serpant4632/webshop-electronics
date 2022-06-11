@@ -13,3 +13,11 @@ div #btn-sign-in {
 .modal-body >* input::-webkit-input-placeholder {
     font-size: 1.1em;
 }
+
+.error {
+    visibility: hidden;
+}
+
+.invalid .error {
+    visibility: collapse;
+}
