@@ -20,8 +20,21 @@ class OrderDatabaseService {
 
     async getOrdersByCustomerId(customerID) {
         const response = await fetch(`${this.baseUrl}?customerID=${customerID}`);
-        const result = await response.json();
+        const resJson = await response.json();
+        let result = [];
+        const orders = resJson["GROUP_CONCAT(productID, \",\", title, \",\", quantity, \";\")"].split(";,");
+        result.push({
+            customerID: resJson.customerID,
+            date: resJson.date,
+        });
+        orders.forEach((cat) => {
+            const details = cat.split(",");
+            result.push({
+                productID: details[0],
+                title: details[1],
+                quantity: details[2]
+            });
+        })
         return result;
     }
-
 }

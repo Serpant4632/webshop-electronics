@@ -8,11 +8,11 @@
         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
             data-bs-parent="#accordionFlushExample">
             <div class="accordion-body ps-5">
-                <p class="mb-1" id="usrAccountNr"></p>
-                <p class="mb-1" id="usrFirstName"></p>
-                <p class="mb-1" id="usrLastName"></p>
-                <p class="mb-1" id="usrAddress"></p>
-                <p class="mb-1" id="usrEmail"></p>
+                <p class="mb-1" id="usrAccountNr">Kunden NR.:</p>
+                <p class="mb-1" id="usrFirstName">Vorname:</p>
+                <p class="mb-1" id="usrLastName">Nachname:</p>
+                <p class="mb-1" id="usrAddress">Anschrift:</p>
+                <p class="mb-1" id="usrEmail">E-Mail:</p>
             </div>
         </div>
     </div>
@@ -24,11 +24,41 @@
 
             </button>
         </h2>
-        <div id="flush-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="flush-headingTwo"
+        <div id="flush-collapseTwo" class="accordion-collapse collapse " aria-labelledby="flush-headingTwo"
             data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-                <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being
-                filled with some actual content.
+            <div class="accordion-body">
+                <div id="table">
+                    <table id="headingTable" style="width: 100%;">
+                        <tr>
+                            <th style="width: 50%;">
+                                Kunden Nr.
+                            </th>
+                            <th style="width: 50%; text-align: right;">
+                                Auftragsdatum
+                            </th>
+                        </tr>
+                        <tr>
+                            <td id="usrAccountNr" style="width: 50%;"></td>
+                            <td id="orderDate" style="width: 50%; text-align: right;"></td>
+                        </tr>
+                    </table>
+                    <table id="orderTable" style="width: 100%;">
+                        <tr>
+                            <th style="width: 10%;">
+                                Pos.
+                            </th>
+                            <th style="width: 10%;">
+                                Artikel Nr.
+                            </th>
+                            <th style="width: 70%;">
+                                Titel
+                            </th>
+                            <th style="width: 10%;">
+                                Menge
+                            </th>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

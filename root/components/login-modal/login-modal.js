@@ -1,5 +1,7 @@
 class LoginModal {
     onClickCallback;
+    userDatabaseService;
+
     constructor(onClick) {
         this.onClickCallback = onClick;
         this.userDatabaseService = new UserDatabaseService();
@@ -23,19 +25,21 @@ class LoginModal {
                 this.userDatabaseService.postDatabaseContent(signin).then((res) => {
                     if (res.status != '200') {
                         wrongCredentials.removeClass('error');
-                        loggedIn = null;
+                        loginModal.handleUpdate();
+                        loginModal.show();
                     }
                     else {
                         wrongCredentials.addClass('error');
                         this.userDatabaseService.getDatabaseContentById(signin.email).then((res) => {
                             console.log(res);
-                            loggedIn = res.id;
-                            console.log(loggedIn);
+                            sessionStorage.setItem('customerID', res.id);
+                            console.log(sessionStorage.getItem('customerID'));
+                            location.reload();
                         });
+                        // loginModal.dispose();
                     }
                 }).catch((error) => {
                 });
-                loginModal.modal('dispose');
             });
 
             // open registermodal on btn "noch nicht registriert?"

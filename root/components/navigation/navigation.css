@@ -156,3 +156,11 @@ img.nav-item {
 #searchbar-container {
     padding-left: 100px;
 }
+
+.while-logged-in{
+    visibility: visible;
+}
+
+li .while-logged-in {
+    visibility: hidden;
+}

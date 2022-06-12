@@ -19,29 +19,35 @@ class MyAccount extends Page {
                     this.onClickCallback(e.currentTarget.id);
             });
 
-            if (loggedIn != null) {
-                this.loadUsrData.then(() => {
-                    $('#usrAccountNr').html(this.usr.id);
-                    $('#usrFirstName').html(this.usr.firstName);
-                    $('#usrLastName').html(this.usr.lastName);
-                    $('#usrAddress').html(this.usr.address);
-                    $('#usrEmail').html(this.usr.email);
+            const data = sessionStorage.getItem('customerID')
+            if (data) {
+                this.loadUsrData(data).then(() => {
+                    $('#usrAccountNr').html('Kunden Nr. : '+this.usr.id);
+                    $('#usrFirstName').html('Vorname: '+this.usr.firstName);
+                    $('#usrLastName').html('Nachname: '+this.usr.lastName);
+                    $('#usrAddress').html('Anschrift: '+this.usr.address);
+                    $('#usrEmail').html('E-Mail: '+this.usr.email);
                 });
 
-                this.loadOrderData.the(() => {
+                this.loadOrderData(data).then(() => {
                     console.log(this.order);
-                })
+                    $('#usrAccountNr').html(this.order.customerID);
+                    $('#orderDate').html(this.order.date);
+                    $('#productNr').html(this.order.productID);
+                    $('#productTitle').html(this.order.title);
+                    $('#quantity').html(this.order.quantity);
+                });
             }
         });
     }
 
-    async loadUsrData() {
-        this.usr = await this.userDatabaseService.getDatabaseContentById(loggedIn);
+    async loadUsrData(data) {
+        this.usr = await this.userDatabaseService.getDatabaseContentById(data);
         console.log(this.usr);
     }
 
-    async loadOrderData() {
-        this.order = await this.orderDatabaseService.getOrdersByCustomerId(this.usr.id);
+    async loadOrderData(data) {
+        this.order = await this.orderDatabaseService.getOrdersByCustomerId(data);
     }
 
     getUserData() {

@@ -12,21 +12,37 @@ class Navigation {
                 console.log(`${e.currentTarget.id} was clicked`);
                 // this.navigateTo(e.target.id);
                 if (this.onClickCallback)
-                this.onClickCallback(e.currentTarget.id);
+                    this.onClickCallback(e.currentTarget.id);
             })
 
-            // open Sign-In Modal
-            $('#my-account-sign-in-btn').on('click', (e) => {
-                const loginModal = new LoginModal(this.onClickCallback);
-                loginModal.render($('#modal-container'));
-            });
+            // check if user is logged in
+            if (!sessionStorage.getItem('customerID')) {
+                $('#my-account-sign-in-btn').html('Anmelden');
+                $('#reg-btn').removeClass('while-logged-in');
 
-            // open Register Modal
-            $('#my-account-register-btn').on('click', (e) => {
-                const registerModal = new RegisterModal(this.onClickCallback);
-                registerModal.render($('#modal-container'));
-                
-            });
+                // open Sign-In Modal
+                $('#my-account-sign-in-btn').on('click', (e) => {
+                    const loginModal = new LoginModal(this.onClickCallback);
+                    loginModal.render($('#modal-container'));
+                });
+
+                // open Register Modal
+                $('#my-account-register-btn').on('click', (e) => {
+                    const registerModal = new RegisterModal(this.onClickCallback);
+                    registerModal.render($('#modal-container'));
+                    
+                });
+            }
+            else {
+                $('#my-account-sign-in-btn').html('Abmelden');
+                $('#reg-btn').addClass('while-logged-in')
+                $('#my-account-sign-in-btn').on('click', () => {
+                    sessionStorage.clear();
+                    location.reload();
+                });
+            }
+
+            
 
             this.renderNavShoppingCart();
 
