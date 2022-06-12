@@ -35,7 +35,7 @@ class Navigation {
             }
             else {
                 $('#my-account-sign-in-btn').html('Abmelden');
-                $('#reg-btn').addClass('while-logged-in')
+                $('#reg-btn').addClass('while-logged-in');
                 $('#my-account-sign-in-btn').on('click', () => {
                     sessionStorage.clear();
                     location.reload();
