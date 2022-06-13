@@ -57,7 +57,7 @@ class MyAccount extends Page {
 }
 
 
-if (!this.scProducts.length) {
+if (!this.scProducts.length) { // ERROR IN CONSOLE. Überprüfung von Existieren von scProducts notwendig, also irgendwie if(this.scProducts)  ....
     $('#info-no-item-in-sc').css('display', 'block');
     $('#table').addClass('hide-content');
 

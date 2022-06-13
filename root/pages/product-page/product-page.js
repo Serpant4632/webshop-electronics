@@ -58,7 +58,6 @@ class ProductPage extends Page {
                 if (existingProduct) {
                     existingProduct.quantity = Number(existingProduct.quantity) + Number(this.chosenQuantityValue);
                     shoppingCartProducts.splice(shoppingCartProducts.indexOf(existingProduct), 1);
-                    console.log(existingProduct)
                     shoppingCartProducts.push(existingProduct);
                 }else {
                     const scProduct = {

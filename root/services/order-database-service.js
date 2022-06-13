@@ -22,12 +22,13 @@ class OrderDatabaseService {
         const response = await fetch(`${this.baseUrl}?customerID=${customerID}`);
         const resJson = await response.json();
         let result = [];
-        const orders = resJson["GROUP_CONCAT(productID, \",\", title, \",\", quantity, \";\")"].split(";,");
+        const orders = resJson["GROUP_CONCAT(productID, \",\", title, \",\", quantity, \";\")"].split(";,"); // WIRFT IRGENDWELCHE ERRORS
         result.push({
             customerID: resJson.customerID,
             date: resJson.date,
         });
         orders.forEach((cat) => {
+            console.log(cat)
             const details = cat.split(",");
             result.push({
                 productID: details[0],
