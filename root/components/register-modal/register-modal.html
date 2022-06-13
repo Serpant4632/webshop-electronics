@@ -12,10 +12,12 @@
                             <div class="mb-4 d-inline-block float-start" id="firstName">
                                 <input type="text" class="form-control height-3em" id="form-first-name"
                                     placeholder="Vorname*" required="true"/>
+                                <small class="form-text text-muted error" id="wrongInputFirstName">Keine Umlaute oder Sonderzeichen!</small>
                             </div>
                             <div class="mb-4 d-inline-block float-end" id="lastName">
                                 <input type="text" class="form-control height-3em" id="form-last-name"
                                     placeholder="Nachname*" required="true"/>
+                                <small class="form-text text-muted error" id="wrongInputLastName">Keine Umlaute oder Sonderzeichen!</small>
                             </div>
                         </li>
                         <li>
@@ -29,6 +31,7 @@
                             <div class="mb-4" id="address">
                                 <input type="text" class="form-control height-3em address" id="form-address"
                                     placeholder="Adresse*" required="true"/>
+                                <small class="form-text text-muted error" id="wrongInputAddress">Keine Umlaute oder Sonderzeichen!</small>
                             </div>
                         </li>
                         <li>

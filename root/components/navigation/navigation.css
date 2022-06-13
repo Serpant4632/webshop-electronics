@@ -159,6 +159,7 @@ img.nav-item {
 
 .while-logged-in{
     visibility: visible;
+    display: none;
 }
 
 li .while-logged-in {

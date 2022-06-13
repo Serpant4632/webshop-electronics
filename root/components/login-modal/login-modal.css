@@ -15,7 +15,8 @@ div #btn-sign-in {
 }
 
 .error {
-    visibility: hidden;
+    display: none;
+    /* visibility: hidden; */
 }
 
 .invalid .error {

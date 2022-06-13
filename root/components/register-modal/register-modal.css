@@ -25,6 +25,7 @@ ul.no-bullets {
 
 .error {
     visibility: hidden;
+    display: none;
 }
 
 .invalid .error{

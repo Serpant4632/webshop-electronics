@@ -15,27 +15,34 @@ class RegisterModal {
 
             // validate name
             const checkFirstName = $('#form-first-name');
+            const errorFirstName = $('#wrongInputFirstName');
             checkFirstName.on('input', (e) => {
                 const validString = /^([a-z]|[A-Z])*$/.test(checkFirstName.val());
                 if (!validString) {
                     checkFirstName.addClass('invalid');
                     signInBtn.addClass('disabled');
+                    errorFirstName.removeClass('error');
                 } else {
                     checkFirstName.removeClass('invalid');
                     signInBtn.removeClass('disabled');
+                    errorFirstName.addClass('error');
                 }
             });
 
             // validate name
             const checkLastName = $('#form-last-name');
+            const errorLastName = $('#wrongInputLastName');
             checkLastName.on('input', (e) => {
                 const validString = /^([a-z]|[A-Z])*$/.test(checkLastName.val());
                 if (!validString) {
                     checkLastName.addClass('invalid');
                     signInBtn.addClass('disabled');
+                    errorLastName.removeClass('error');
                 } else {
                     checkLastName.removeClass('invalid');
                     signInBtn.removeClass('disabled');
+                    errorLastName.addClass('error');
+
                 }
             });
 
@@ -62,14 +69,17 @@ class RegisterModal {
 
             // validate address
             const checkAddress = $('#form-address');
+            const errorAddress = $('#wrongInputAddress');
             checkAddress.on('input', (e) => {
                 const validString = /^([a-z]|[A-Z]|[0-9]|[ ]|[.])*$/.test(checkAddress.val());
                 if (!validString) {
                     checkAddress.addClass('invalid');
                     signInBtn.addClass('disabled');
+                    errorAddress.removeClass('error');
                 } else {
                     checkAddress.removeClass('invalid');
                     signInBtn.removeClass('disabled');
+                    errorAddress.addClass('error');
                 }
             });
 
