@@ -1,6 +1,7 @@
 class Navigation {
     onClickCallback;
     productDatabaseService;
+    
     constructor(onClick) {
         this.onClickCallback = onClick;
         this.productDatabaseService = new ProductDatabaseService();

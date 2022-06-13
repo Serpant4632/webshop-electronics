@@ -15,7 +15,6 @@ class LoginModal {
             // try to login
             const wrongCredentials = $('#errorMsg');
             const loginForm = $('#login-form');
-            const signInBtn = $('#btn-sign-in');
             loginForm.on('submit', (event) => {
                 event.preventDefault();
                 let signin = {
@@ -27,8 +26,6 @@ class LoginModal {
                 this.userDatabaseService.postDatabaseContent(signin).then((res) => {
                     if (res.status != '200') {
                         wrongCredentials.removeClass('error');
-                        // loginModal.handleUpdate();
-                        // loginModal.show();
                     }
                     else {
                         wrongCredentials.addClass('error');
@@ -37,10 +34,12 @@ class LoginModal {
                             sessionStorage.setItem('customerID', res.id);
                             console.log(sessionStorage.getItem('customerID'));
                         });
+                        loginModal.hide();
+                        console.log(loginModal);
+                        this.onClickCallback('myAccount');
+                        new Navigation(navigatePage).render('#navigation');
                     }
                 });
-                loginModal.dispose();
-                // this.onClickCallback('myAccount');
             });
 
             // open registermodal on btn "noch nicht registriert?"
