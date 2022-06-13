@@ -1,0 +1,1 @@
+# Component programmed by Lukas, Leon, Hendrik 60/30/10

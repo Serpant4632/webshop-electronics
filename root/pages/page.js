@@ -1,4 +1,4 @@
-// Programmed by Leon
+// Programmed by Lutz copied by Leon
 
 class Page {
     pageName;

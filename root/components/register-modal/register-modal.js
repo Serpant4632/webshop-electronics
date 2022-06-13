@@ -119,8 +119,6 @@ class RegisterModal {
                 this.userDatabaseService.postDatabaseContent(newAccount).then((res) => {
                     if (res.status != '201') {
                         signInBtn.addClass('disabled');
-                        // registerModal.handleUpdate();
-                        // registerModal.show();
 
                     } else {
                         // open login model after signup

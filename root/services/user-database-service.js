@@ -6,12 +6,6 @@ class UserDatabaseService {
 
     }
 
-    async getDatabaseContent() {
-        const response = await fetch(this.baseUrl);
-        const result = await response.json();
-        return result;
-    }
-
     async getDatabaseContentById(id) {
         const response = await fetch(`${this.baseUrl}?id=${id}`);
         const result = await response.json();
@@ -34,11 +28,4 @@ class UserDatabaseService {
         console.log(result);
         return result;
     }
-
-    async deleteDatabaseContent(id) {
-        await fetch(`${this.baseUrl}?id=${id}`, {
-            method: 'DELETE',
-        });
-    }
-
 }
