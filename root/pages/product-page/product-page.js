@@ -18,11 +18,6 @@ class ProductPage extends Page {
                 console.log(`${e.currentTarget.id} was clicked`);
                 if (this.onClickCallback)
                     this.onClickCallback(e.currentTarget.id);
-            })
-
-            $('#go-to-sc').on('click', () => {
-                if (this.onClickCallback)
-                    this.onClickCallback('shoppingCart');
             });
 
             // create Offcanvas element 

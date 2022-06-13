@@ -10,13 +10,12 @@ div #btn-sign-in {
     height: 3em;
 }
 
-.modal-body >* input::-webkit-input-placeholder {
+.modal-body>* input::-webkit-input-placeholder {
     font-size: 1.1em;
 }
 
 .error {
     display: none;
-    /* visibility: hidden; */
 }
 
 .invalid .error {

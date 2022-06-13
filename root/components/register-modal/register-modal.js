@@ -71,7 +71,7 @@ class RegisterModal {
             const checkAddress = $('#form-address');
             const errorAddress = $('#wrongInputAddress');
             checkAddress.on('input', (e) => {
-                const validString = /^([a-z]|[A-Z]|[0-9]|[ ]|[.])*$/.test(checkAddress.val());
+                const validString = /^([a-z]|[A-Z]|[0-9]|[ ]|[.]|[-]|[,])*$/.test(checkAddress.val());
                 if (!validString) {
                     checkAddress.addClass('invalid');
                     signInBtn.addClass('disabled');
