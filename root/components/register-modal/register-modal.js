@@ -15,7 +15,7 @@ class RegisterModal {
 
             // validate name
             const checkFirstName = $('#form-first-name');
-            const errorFirstName = $('#wrongInputFirstName');
+            const errorFirstName = $('#wrong-input-first-name');
             checkFirstName.on('input', (e) => {
                 const validString = /^([a-z]|[A-Z])*$/.test(checkFirstName.val());
                 if (!validString) {
@@ -31,7 +31,7 @@ class RegisterModal {
 
             // validate name
             const checkLastName = $('#form-last-name');
-            const errorLastName = $('#wrongInputLastName');
+            const errorLastName = $('#wrong-input-last-name');
             checkLastName.on('input', (e) => {
                 const validString = /^([a-z]|[A-Z])*$/.test(checkLastName.val());
                 if (!validString) {
@@ -48,7 +48,7 @@ class RegisterModal {
 
             // validate email and check if it's existing
             const checkEmail = $('#form-email');
-            const occupiedEmail = $('#errorMsg');
+            const occupiedEmail = $('#error-msg');
             checkEmail.on('input', (e) => {
                 const substring = checkEmail.val();
                 this.userDatabaseService.getEmailBySubstring(substring).then((res) => {
@@ -69,7 +69,7 @@ class RegisterModal {
 
             // validate address
             const checkAddress = $('#form-address');
-            const errorAddress = $('#wrongInputAddress');
+            const errorAddress = $('#wrong-input-address');
             checkAddress.on('input', (e) => {
                 const validString = /^([a-z]|[A-Z]|[0-9]|[ ]|[.]|[-]|[,])*$/.test(checkAddress.val());
                 if (!validString) {
@@ -86,7 +86,7 @@ class RegisterModal {
             // validate password
             const checkPwd = $('#form-password');
             const checkRepPwd = $('#form-rep-password');
-            const wrongRepPwd = $('#errorPwd');
+            const wrongRepPwd = $('#error-pwd');
             checkRepPwd.on('input', (e) => {
                 if (checkPwd.val() !== checkRepPwd.val()) {
                     signInBtn.addClass('disabled');
