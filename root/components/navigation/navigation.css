@@ -157,11 +157,6 @@ img.nav-item {
     padding-left: 100px;
 }
 
-.while-logged-in{
-    visibility: visible;
+ul .while-logged-in{
     display: none;
-}
-
-li .while-logged-in {
-    visibility: hidden;
 }

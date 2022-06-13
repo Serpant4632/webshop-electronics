@@ -1,7 +1,7 @@
 class Navigation {
     onClickCallback;
     productDatabaseService;
-    
+
     constructor(onClick) {
         this.onClickCallback = onClick;
         this.productDatabaseService = new ProductDatabaseService();
@@ -18,8 +18,9 @@ class Navigation {
 
             // check if user is logged in
             if (!sessionStorage.getItem('customerID')) {
+                
+                // change button to signin
                 $('#my-account-sign-in-btn').html('Anmelden');
-                $('#reg-btn').removeClass('while-logged-in');
 
                 // open Sign-In Modal
                 $('#my-account-sign-in-btn').on('click', (e) => {
@@ -31,32 +32,37 @@ class Navigation {
                 $('#my-account-register-btn').on('click', (e) => {
                     const registerModal = new RegisterModal(this.onClickCallback);
                     registerModal.render($('#modal-container'));
-                    
+
                 });
             }
             else {
+                // change button to logout
                 $('#my-account-sign-in-btn').html('Abmelden');
-                $('#reg-btn').addClass('while-logged-in');
+
+                // remove register btn
+                $('#reg-btn').remove();
+
+                // clear session storage
                 $('#my-account-sign-in-btn').on('click', () => {
                     sessionStorage.clear();
                     location.reload();
                 });
             }
 
-            
+
 
             this.renderNavShoppingCart();
 
             const searchbar = $('#sSearch');
-            
+
             searchbar.on('input', (e) => {
                 const searchbarSubstring = e.target.value;
                 this.productDatabaseService.getProductByTitle(searchbarSubstring).then(res => {
-                    if(res) {
+                    if (res) {
 
                     }
                 });
-                
+
                 const searchbarContent = new SearchbarContent(navigatePage);
                 searchbarContent.render('#content');
             });
@@ -74,7 +80,7 @@ class Navigation {
             });
             const strTotalPriceOfSC = totalPriceOfSC.toFixed(2).replace('.', ',');
             $('#nav-price-shopping-cart').html(`${strTotalPriceOfSC}€`);
-            
+
             $('#nav-badge-shopping-cart').html(totalQuantity);
         }
     }
