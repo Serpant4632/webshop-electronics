@@ -1,67 +1,119 @@
-<div class="accordion accordion-flush" id="accordion-shopping-cart">
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                <p class="fs-4 mb-1 d-inline-block">Versand</p>
-        </h2>
-        <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne"
-            data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body ps-5">
-                <p class="mb-1">Leon Jäger</p>
-                <p class="mb-1">Driasstraße 20</p>
-                <p>Speyer, Rheinland-pfalz 67346</p>
+<div class="container">
+    <div class="row">
+        <div class="col-9">
 
-            </div>
-        </div>
-    </div>
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                <p class="fs-4 mb-1">Übersicht</p>
-            </button>
-        </h2>
-        <div id="flush-collapseThree" class="accordion-collapse collapse show" aria-labelledby="flush-headingThree"
-            data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-                <p id="info-no-item-in-sc" class="ms-4">Keine Artikel im Warenkorb</p>
-                <div id="table">
-                    <table class="table-width" id="shoppingCartTable">
-                        <tr>
-                            <th class="column-heading-wide" id="colIndex">
-                                Pos.
-                            </th>
-                            <th class="column-heading-wide" id="colProductId">
-                                Artikel Nr.
-                            </th>
-                            <th class="column-heading-wide-2" id="colTitle">
-                                Titel
-                            </th>
-                            <th class="column-heading-wide" id="colQuantity">
-                                Menge
-                            </th>
-                            <th class="column-heading-wide" id="deleteButton">
-                            </th>
-                        </tr>
-                    </table>
+
+            <div class="accordion accordion-flush" id="accordion-shopping-cart">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <p class="fs-4 mb-1 d-inline-block">Versand</p>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse show"
+                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body ps-5">
+                            <p class="mb-1">Leon Jäger</p>
+                            <p class="mb-1">Driasstraße 20</p>
+                            <p>Speyer, Rheinland-pfalz 67346</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseThree" aria-expanded="false"
+                            aria-controls="flush-collapseThree">
+                            <p class="fs-4 mb-1">Übersicht</p>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse show"
+                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <p id="info-no-item-in-sc" class="ms-4">Keine Artikel im Warenkorb</p>
+                            <div id="table">
+                                <table class="table-width" id="shoppingCartTable">
+                                    <tr>
+                                        <th class="column-heading-wide" id="colIndex">
+                                            Pos.
+                                        </th>
+                                        <th class="column-heading-wide" id="colProductId">
+                                            Artikel Nr.
+                                        </th>
+                                        <th class="column-heading-wide-2" id="colTitle">
+                                            Titel
+                                        </th>
+                                        <th class="column-heading-wide" id="colQuantity">
+                                            Menge
+                                        </th>
+                                        <th class="column-heading-wide" id="deleteButton">
+                                        </th>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            <p class="fs-4 mb-1">Zahlungsart</p>
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="list-group">
+                                <label class="list-group-item border-bottom p-3" style="border: none;">
+                                    <input class="form-check-input me-1" type="radio" value="PayPal" name="flexRadioDefault">
+                                    <iframe src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+                                        frameborder="0"
+                                        style="max-height: 30px; max-width: 100px; padding-left: 10px;"></iframe>
+                                </label>
+                                <label class="list-group-item border-bottom p-3" style="border: none;">
+                                    <input class="form-check-input me-1" type="radio" value="Monatsrechnung" name="flexRadioDefault">
+                                    <img src="/resources/images/Monatsrechnung.jpg" alt=""
+                                        style="max-height: 30px; max-width: 100px; padding-left: 10px;">
+                                    <p class="fw-bolder d-inline ps-1">Ratenzahlung</p>
+                                </label>
+                                <label class="list-group-item border-bottom p-3" style="border: none;">
+                                    <input class="form-check-input me-1" type="radio" value="Kreditkarte" name="flexRadioDefault">
+                                    <img src="/resources/images/Kreditkarte.gif" alt=""
+                                        style="max-height: 30px; max-width: 100px; padding-left: 10px;">
+                                    <p class="d-inline fw-bolder ps-1">Kreditkarte</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="flush-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                <p class="fs-4 mb-1">Zahlungsart</p>
-            </button>
-        </h2>
-        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-            data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the
-                <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being
-                filled with some actual content.
-            </div>
+        <div class="col-3" style="background-color: white;">
+            <p class="fs-2 fw-bolder">Gesamtsumme</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item border-0">
+                    <p class="d-inline" style="float: left;">Zwischensumme</p>
+                    <p id="costs-subtotal" class="d-inline" style="float: right;">0,00€</p>
+                </li>
+                <li class="list-group-item border-bottom">
+                    <p class="d-inline" style="float: left;">Lieferung</p>
+                    <p id="costs-delivery" class="d-inline" style="float: right;">4,90€</p>
+                </li>
+                <li class="list-group-item border-0">
+                    <p class="d-inline fw-bolder" style="float: left;">Gesamtsumme</p>
+                    <p id="costs-total" class="d-inline fw-bolder" style="float: right;">0,00€</p>
+                </li>
+                <button id="btn-purchase" type="button" class="btn btn-success">
+                    <i class="bi bi-currency-dollar d-inline pe-2"></i>
+                    <p class="d-inline">Bestellen</p>
+                    <i class="bi bi-currency-dollar d-inline ps-2"></i>
+                </button>
+            </ul>
         </div>
+
+
     </div>
+
 </div>

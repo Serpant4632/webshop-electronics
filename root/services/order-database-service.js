@@ -37,4 +37,15 @@ class OrderDatabaseService {
         })
         return result;
     }
+
+    async postOrder(newContent) {
+        console.log('post database content', newContent);
+        const result = await fetch(this.baseUrl, {
+            method: 'POST',
+            cache: 'reload',
+            body: JSON.stringify(newContent),
+        })
+        console.log(result);
+        return result;
+    }
 }
