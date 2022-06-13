@@ -26,15 +26,13 @@ class UserDatabaseService {
 
     async postDatabaseContent(newContent) {
         console.log('post database content', newContent);
-        fetch(this.baseUrl, {
+        const result = await fetch(this.baseUrl, {
             method: 'POST',
+            cache: 'reload',
             body: JSON.stringify(newContent),
-        }).then(res => {
-            console.log(res.status);
-            return res;
-        });
-        // console.log(result);
-        // return result;
+        })
+        console.log(result);
+        return result;
     }
 
     async deleteDatabaseContent(id) {
