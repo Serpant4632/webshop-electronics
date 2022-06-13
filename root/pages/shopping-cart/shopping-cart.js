@@ -32,7 +32,8 @@ class ShoppingCart extends Page {
                     // update localStorage
                     localStorage.setItem('shopping-cart-products', JSON.stringify(this.scProducts));
                     console.log(this.scProducts);
-
+                    this.renderNavShoppingCart();
+                    this.render(parentSelector);
                 });
             }
 
@@ -42,5 +43,22 @@ class ShoppingCart extends Page {
     getShoppingCartProducts() {
         this.scProducts = JSON.parse(localStorage.getItem('shopping-cart-products'));
     }
-
+    
+    renderNavShoppingCart() {
+        let shoppingCartProducts = this.scProducts;
+        if (shoppingCartProducts) {
+            console.log('renderNavShoppingCart');
+            let totalPriceOfSC = 0;
+            let totalQuantity = 0;
+            shoppingCartProducts.forEach((p) => {
+                totalPriceOfSC += parseFloat(p.price) * parseFloat(p.quantity);
+                totalQuantity += parseFloat(p.quantity);
+            });
+            const strTotalPriceOfSC = totalPriceOfSC.toFixed(2).replace('.', ',');
+            $('#nav-price-shopping-cart').html(`${strTotalPriceOfSC}€`);
+            console.log(shoppingCartProducts);
+            if (totalQuantity == 0) totalQuantity = '';
+            $('#nav-badge-shopping-cart').html(totalQuantity);
+        }
+    }
 }

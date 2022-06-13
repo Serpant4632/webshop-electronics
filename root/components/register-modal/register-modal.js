@@ -101,8 +101,11 @@ class RegisterModal {
             })
 
             // post new account and open Login Modal
+            const registerForm = $('#register-form');
             const signInBtn = $('#btn-sign-up');
-            signInBtn.on('click', () => {
+            console.log(registerForm);
+            registerForm.on('submit', (event) => {
+                event.preventDefault();
                 let newAccount = {
                     firstName: $('#form-first-name').val(),
                     lastName: $('#form-last-name').val(),
