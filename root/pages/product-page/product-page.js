@@ -54,11 +54,19 @@ class ProductPage extends Page {
                 $('#warning-quantity').addClass('d-none');
                 canvasSC.show();
                 let shoppingCartProducts = JSON.parse(localStorage.getItem('shopping-cart-products'));
-                const scProduct = {
-                    ...this.product,
-                    quantity: parseFloat(this.chosenQuantityValue)
-                };
-                shoppingCartProducts.push(scProduct);
+                let existingProduct = shoppingCartProducts.find(product => product.id === this.productId);
+                if (existingProduct) {
+                    existingProduct.quantity = Number(existingProduct.quantity) + Number(this.chosenQuantityValue);
+                    shoppingCartProducts.splice(shoppingCartProducts.indexOf(existingProduct), 1);
+                    console.log(existingProduct)
+                    shoppingCartProducts.push(existingProduct);
+                }else {
+                    const scProduct = {
+                        ...this.product,
+                        quantity: parseFloat(this.chosenQuantityValue)
+                    };
+                    shoppingCartProducts.push(scProduct);
+                }
                 localStorage.setItem('shopping-cart-products', JSON.stringify(shoppingCartProducts));
                 this.renderNavShoppingCart();
             });
