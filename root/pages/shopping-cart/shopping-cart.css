@@ -2,9 +2,14 @@
     width: 100%;
 }
 
-.column-heading-wide{
+.column-heading-wide {
     width: 10%;
 }
-.column-heading-wide-2{
+
+.column-heading-wide-2 {
     width: 60%;
+}
+
+.hide-content {
+    display: none;
 }
