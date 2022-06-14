@@ -41,9 +41,8 @@ class ShoppingCart extends Page {
                 this.renderNavShoppingCart();
                 // create foreach product in SC new row
 
-                $('#liveToastBtn').on('click', () => {
-
-                });
+                $('#delivery-name').html(`<p class="ps-2 m-0">${this.user.firstName} ${this.user.lastName}</p>`);
+                $('#delivery-address').html(`<p class="p-2">${this.user.address}</p>`);
 
                 if (!this.scProducts.length) {
                     $('#info-no-item-in-sc').css('display', 'block');
@@ -59,11 +58,6 @@ class ShoppingCart extends Page {
                     $('#costs-subtotal').html(`${this.subtotalCosts}€`);
                     $('#costs-total').html(`${this.totalCosts}€`);
 
-                    // display delivery-data
-                    console.log(this.user)
-                    $('#delivery-name').html(`<p class="ps-2 m-0">${this.user.firstName} ${this.user.lastName}</p>`);
-                    $('#delivery-address').html(`<p class="p-2">${this.user.address}</p>`);
-
                     $('.btn-delete-sc-item').on('click', (e) => {
                         // select current index+1 from item
                         const chosenProductPosition = $(e.currentTarget.parentElement.parentElement).children(":first").html();
@@ -73,7 +67,6 @@ class ShoppingCart extends Page {
 
                         // update localStorage
                         localStorage.setItem('shopping-cart-products', JSON.stringify(this.scProducts));
-                        console.log(this.scProducts);
                         this.renderNavShoppingCart();
                         this.render(parentSelector);
                     });
@@ -115,7 +108,6 @@ class ShoppingCart extends Page {
     renderNavShoppingCart() {
         let shoppingCartProducts = this.scProducts;
         if (shoppingCartProducts) {
-            console.log('renderNavShoppingCart');
             let totalPriceOfSC = 0;
             let totalQuantity = 0;
             shoppingCartProducts.forEach((p) => {
@@ -127,10 +119,8 @@ class ShoppingCart extends Page {
             const strTotalPriceOfSC = totalPriceOfSC.toFixed(2).replace('.', ',');
 
             this.subtotalCosts = strTotalPriceOfSC;
-            console.log(this.totalCosts);
             $('#nav-price-shopping-cart').html(`${strTotalPriceOfSC}€`);
             if (totalQuantity == 0) totalQuantity = '';
-            console.log(totalQuantity);
             $('#nav-badge-shopping-cart').html(totalQuantity);
         }
     }
