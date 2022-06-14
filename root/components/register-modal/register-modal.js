@@ -116,7 +116,7 @@ class RegisterModal {
                     signup: $('#btn-sign-up').html()
                 }
                 console.log(newAccount);
-                this.userDatabaseService.postDatabaseContent(newAccount).then((res) => {
+                this.userDatabaseService.postUserContent(newAccount).then((res) => {
                     if (res.status != '201') {
                         signInBtn.addClass('disabled');
 

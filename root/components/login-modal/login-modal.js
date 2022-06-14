@@ -23,13 +23,13 @@ class LoginModal {
                     login: $('#btn-sign-in').html()
                 }
                 console.log(signin);
-                this.userDatabaseService.postDatabaseContent(signin).then((res) => {
+                this.userDatabaseService.postUserContent(signin).then((res) => {
                     if (res.status != '200') {
                         wrongCredentials.removeClass('error');
                     }
                     else {
                         wrongCredentials.addClass('error');
-                        this.userDatabaseService.getDatabaseContentById(signin.email).then((res) => {
+                        this.userDatabaseService.getDatabaseUserById(signin.email).then((res) => {
                             console.log(res);
                             sessionStorage.setItem('customerID', res.id);
                             console.log(sessionStorage.getItem('customerID'));

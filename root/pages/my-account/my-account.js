@@ -42,7 +42,7 @@ class MyAccount extends Page {
     }
 
     async loadUsrData(data) {
-        this.usr = await this.userDatabaseService.getDatabaseContentById(data);
+        this.usr = await this.userDatabaseService.getDatabaseUserById(data);
         console.log(this.usr);
     }
 

@@ -6,7 +6,7 @@ class UserDatabaseService {
 
     }
 
-    async getDatabaseContentById(id) {
+    async getDatabaseUserById(id) {
         const response = await fetch(`${this.baseUrl}?id=${id}`);
         const result = await response.json();
         return result;
@@ -18,7 +18,7 @@ class UserDatabaseService {
         return result;
     }
 
-    async postDatabaseContent(newContent) {
+    async postUserContent(newContent) {
         console.log('post database content', newContent);
         const result = await fetch(this.baseUrl, {
             method: 'POST',
