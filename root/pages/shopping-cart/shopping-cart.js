@@ -4,11 +4,14 @@ class ShoppingCart extends Page {
     subtotalCosts;
     totalCosts;
     orderDatabaseService;
+    userDatabaseService;
     onClickCallback;
+    user;
     constructor(onClickCallback) {
         super('shopping-cart');
         this.orderDatabaseService = new OrderDatabaseService();
         this.onClickCallback = onClickCallback;
+        this.userDatabaseService = new UserDatabaseService();
     }
 
     /*
@@ -21,7 +24,8 @@ class ShoppingCart extends Page {
 
 
     render(parentSelector) {
-        if (!sessionStorage.getItem('customerID')) {
+        const userId = sessionStorage.getItem('customerID');
+        if (!userId) {
             var toastElList = [].slice.call(document.querySelectorAll('.toast'))
             var toastList = toastElList.map(function (toastEl) {
                 return new bootstrap.Toast(toastEl)
@@ -29,69 +33,79 @@ class ShoppingCart extends Page {
             toastList[0].show();
             return;
         }
-        $(parentSelector).load('./pages/shopping-cart/shopping-cart.html', () => {
-            this.getShoppingCartProducts();
-            this.renderNavShoppingCart();
-            // create foreach product in SC new row
+        this.userDatabaseService.getDatabaseUserById(userId).then(res => {
+            this.user = res;
 
-            $('#liveToastBtn').on('click', () => {
+            $(parentSelector).load('./pages/shopping-cart/shopping-cart.html', () => {
+                this.getShoppingCartProducts();
+                this.renderNavShoppingCart();
+                // create foreach product in SC new row
 
-            });
+                $('#liveToastBtn').on('click', () => {
 
-            if (!this.scProducts.length) {
-                $('#info-no-item-in-sc').css('display', 'block');
-                $('#table').addClass('hide-content');
-            } else {
-                $('#info-no-item-in-sc').css('display', 'none');
-                $('#table').removeClass('hide-content');
-                this.scProducts.forEach((cat, index) => {
-                    $('#shoppingCartTable').append(`<tr><td class="column-heading-wide">${index + 1}</td><td class="column-heading-wide">${cat['id']}</td><td class="column-heading-wide-2">${cat['title']}</td><td class="column-heading-wide">${cat['quantity']}</td><td><i class="bi bi-trash3-fill btn btn-delete-sc-item"></i></td></tr>`);
-                });
-                console.log(this.subtotalCosts)
-                $('#costs-subtotal').html(`${this.subtotalCosts}€`);
-                $('#costs-total').html(`${this.totalCosts}€`);
-
-                $('.btn-delete-sc-item').on('click', (e) => {
-                    // select current index+1 from item
-                    const chosenProductPosition = $(e.currentTarget.parentElement.parentElement).children(":first").html();
-
-                    // remove item by index from object
-                    this.scProducts.splice(chosenProductPosition - 1, 1);
-
-                    // update localStorage
-                    localStorage.setItem('shopping-cart-products', JSON.stringify(this.scProducts));
-                    console.log(this.scProducts);
-                    this.renderNavShoppingCart();
-                    this.render(parentSelector);
                 });
 
-                $('#btn-purchase').on('click', (e) => {
-                    const customerID = sessionStorage.getItem('customerID');
+                if (!this.scProducts.length) {
+                    $('#info-no-item-in-sc').css('display', 'block');
+                    $('#table').addClass('hide-content');
+                } else {
+                    // display products in shopping cart
+                    $('#info-no-item-in-sc').css('display', 'none');
+                    $('#table').removeClass('hide-content');
+                    this.scProducts.forEach((cat, index) => {
+                        $('#shoppingCartTable').append(`<tr><td class="column-heading-wide">${index + 1}</td><td class="column-heading-wide">${cat['id']}</td><td class="column-heading-wide-2">${cat['title']}</td><td class="column-heading-wide">${cat['quantity']}</td><td><i class="bi bi-trash3-fill btn btn-delete-sc-item"></i></td></tr>`);
+                    });
+                    // display costs
+                    $('#costs-subtotal').html(`${this.subtotalCosts}€`);
+                    $('#costs-total').html(`${this.totalCosts}€`);
 
-                    this.scProducts.forEach((item) => {
-                        const order = {
-                            customerID: customerID,
-                            productID: item.id,
-                            quantity: item.quantity,
-                        };
-                        this.orderDatabaseService.postOrder(order).then(response => {
-                            if (response.status == 201) {
-                                this.scProducts = [];
-                                localStorage.setItem('shopping-cart-products', JSON.stringify([]));
-                                this.renderNavShoppingCart();
-                                this.onClickCallback('myAccount');
-                            }
+                    // display delivery-data
+                    console.log(this.user)
+                    $('#delivery-name').html(`<p class="ps-2 m-0">${this.user.firstName} ${this.user.lastName}</p>`);
+                    $('#delivery-address').html(`<p class="p-2">${this.user.address}</p>`);
 
+                    $('.btn-delete-sc-item').on('click', (e) => {
+                        // select current index+1 from item
+                        const chosenProductPosition = $(e.currentTarget.parentElement.parentElement).children(":first").html();
+
+                        // remove item by index from object
+                        this.scProducts.splice(chosenProductPosition - 1, 1);
+
+                        // update localStorage
+                        localStorage.setItem('shopping-cart-products', JSON.stringify(this.scProducts));
+                        console.log(this.scProducts);
+                        this.renderNavShoppingCart();
+                        this.render(parentSelector);
+                    });
+
+                    $('#btn-purchase').on('click', (e) => {
+                        const customerID = sessionStorage.getItem('customerID');
+
+                        this.scProducts.forEach((item) => {
+                            const order = {
+                                customerID: customerID,
+                                productID: item.id,
+                                quantity: item.quantity,
+                            };
+                            this.orderDatabaseService.postOrder(order).then(response => {
+                                if (response.status == 201) {
+                                    this.scProducts = [];
+                                    localStorage.setItem('shopping-cart-products', JSON.stringify([]));
+                                    this.renderNavShoppingCart();
+                                    this.onClickCallback('myAccount');
+                                }
+
+                            });
                         });
                     });
-                });
-            }
+                }
 
-            $('.form-check-input').on('click', (e) => {
+                $('.form-check-input').on('click', (e) => {
+
+                });
 
             });
-
-        });
+        }).catch(res => console.log(res));
     }
 
     getShoppingCartProducts() {
