@@ -122,10 +122,12 @@ class ShoppingCart extends Page {
                 totalPriceOfSC += parseFloat(p.price) * parseFloat(p.quantity);
                 totalQuantity += parseFloat(p.quantity);
             });
-            this.totalCosts = (Number(totalPriceOfSC.toFixed(2)) + Number(4.99)).toString().replace('.', ',');
+            console.log('inshoppingCart');
+            this.totalCosts = (Number(totalPriceOfSC.toFixed(2)) + Number(4.90)).toString().replace('.', ',');
             const strTotalPriceOfSC = totalPriceOfSC.toFixed(2).replace('.', ',');
+
             this.subtotalCosts = strTotalPriceOfSC;
-            console.log(strTotalPriceOfSC);
+            console.log(this.totalCosts);
             $('#nav-price-shopping-cart').html(`${strTotalPriceOfSC}€`);
             if (totalQuantity == 0) totalQuantity = '';
             console.log(totalQuantity);

@@ -1,5 +1,5 @@
 <div class="accordion accordion-flush" id="accordion-my-account">
-    <div class="accordion-data">
+    <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -8,15 +8,15 @@
         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
             data-bs-parent="#accordionFlushExample">
             <div class="accordion-body ps-5">
-                <p class="mb-1" id="usrAccountNr">Kunden NR.:</p>
-                <p class="mb-1" id="usrFirstName">Vorname:</p>
-                <p class="mb-1" id="usrLastName">Nachname:</p>
-                <p class="mb-1" id="usrAddress">Anschrift:</p>
-                <p class="mb-1" id="usrEmail">E-Mail:</p>
+                <p class="mb-1" id="usr-account-nr">Kunden NR.:</p>
+                <p class="mb-1" id="usr-first-name">Vorname:</p>
+                <p class="mb-1" id="usr-last-name">Nachname:</p>
+                <p class="mb-1" id="usr-address">Anschrift:</p>
+                <p class="mb-1" id="usr-email">E-Mail:</p>
             </div>
         </div>
     </div>
-    <div class="accordion-data">
+    <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingTwo">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
@@ -26,34 +26,21 @@
         <div id="flush-collapseTwo" class="accordion-collapse collapse " aria-labelledby="flush-headingTwo"
             data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
-                <div id="table">
-                    <table id="headingTable" style="width: 100%;">
+                <div id="table-div">
+                    <p id="customer-number">Kunden Nr.: </p>
+                    <table id="order-table" style="width: 100%;">
                         <tr>
-                            <th style="width: 50%;">
-                                Kunden Nr.
-                            </th>
-                            <th style="width: 50%; text-align: right;">
-                                Auftragsdatum
-                            </th>
-                        </tr>
-                        <tr>
-                            <td id="usrAccountNr" style="width: 50%;"></td>
-                            <td id="orderDate" style="width: 50%; text-align: right;"></td>
-                        </tr>
-                    </table>
-                    <table id="orderTable" style="width: 100%;">
-                        <tr>
-                            <th style="width: 10%;">
-                                Pos.
-                            </th>
-                            <th style="width: 10%;">
+                            <th sclass="column-heading-wide">
                                 Artikel Nr.
                             </th>
-                            <th style="width: 70%;">
+                            <th class="column-heading-wide-2">
                                 Titel
                             </th>
-                            <th style="width: 10%;">
+                            <th class="column-heading-wide">
                                 Menge
+                            </th>
+                            <th class="column-heading-wide">
+                                Auftragsdatum
                             </th>
                         </tr>
                     </table>
@@ -61,7 +48,7 @@
             </div>
         </div>
     </div>
-    <div class="accordion-data">
+    <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingThree">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">

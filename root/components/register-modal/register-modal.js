@@ -52,7 +52,7 @@ class RegisterModal {
             checkEmail.on('input', (e) => {
                 const substring = checkEmail.val();
                 this.userDatabaseService.getEmailBySubstring(substring).then((res) => {
-                    console.log(res);
+                    // console.log(res);
                     if (res.status == '409') {
                         checkEmail.addClass('invalid');
                         signInBtn.addClass('disabled');
@@ -115,11 +115,10 @@ class RegisterModal {
                     repPassword: $('#form-rep-password').val(),
                     signup: $('#btn-sign-up').html()
                 }
-                console.log(newAccount);
+                // console.log(newAccount);
                 this.userDatabaseService.postUserContent(newAccount).then((res) => {
                     if (res.status != '201') {
                         signInBtn.addClass('disabled');
-
                     } else {
                         // open login model after signup
                         registerModal.dispose();

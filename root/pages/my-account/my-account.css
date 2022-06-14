@@ -1,0 +1,16 @@
+.table-width {
+    width: 100%;
+}
+
+.column-heading-wide {
+    width: 10%;
+}
+
+.column-heading-wide-2 {
+    width: 60%;
+}
+
+div .hide-content {
+    display: none;
+}
+
