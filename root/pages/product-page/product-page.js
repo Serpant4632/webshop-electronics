@@ -59,7 +59,7 @@ class ProductPage extends Page {
                     existingProduct.quantity = Number(existingProduct.quantity) + Number(this.chosenQuantityValue);
                     shoppingCartProducts.splice(shoppingCartProducts.indexOf(existingProduct), 1);
                     shoppingCartProducts.push(existingProduct);
-                }else {
+                } else {
                     const scProduct = {
                         ...this.product,
                         quantity: parseFloat(this.chosenQuantityValue)
@@ -87,7 +87,7 @@ class ProductPage extends Page {
             });
             const strTotalPriceOfSC = totalPriceOfSC.toFixed(2).replace('.', ',');
             $('#nav-price-shopping-cart').html(`${strTotalPriceOfSC}€`);
-            
+
             $('#nav-badge-shopping-cart').html(totalQuantity);
         }
     }

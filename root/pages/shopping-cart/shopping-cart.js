@@ -15,13 +15,10 @@ class ShoppingCart extends Page {
     }
 
     /*
-    
     customerId,
     productid,
     productquantity
     */
-
-
 
     render(parentSelector) {
         const userId = sessionStorage.getItem('customerID');

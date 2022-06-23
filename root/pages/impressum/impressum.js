@@ -1,10 +1,10 @@
 class Impressum extends Page {
-    
+
     constructor(onClickCallback) {
         super('impressum');
     }
 
-    render(parentSelector) { 
+    render(parentSelector) {
         $(parentSelector).load('./pages/impressum/impressum.html', () => {
         });
     }

@@ -11,14 +11,13 @@ class Navigation {
         $(parentSelector).load('./components/navigation/navigation.html', () => {
             $('.nav-item').on('click', (e) => {
                 console.log(`${e.currentTarget.id} was clicked`);
-                // this.navigateTo(e.target.id);
                 if (this.onClickCallback)
                     this.onClickCallback(e.currentTarget.id);
             })
 
             // check if user is logged in
             if (!sessionStorage.getItem('customerID')) {
-                
+
                 // change button to signin
                 $('#my-account-sign-in-btn').html('Anmelden');
 
@@ -49,20 +48,18 @@ class Navigation {
                 });
             }
 
-
-
             this.renderNavShoppingCart();
 
             const searchbar = $('#sSearch');
-
             searchbar.on('input', (e) => {
                 const searchbarSubstring = e.target.value;
-                this.productDatabaseService.getProductByTitle(searchbarSubstring).then(res => {
-                    if (res) {
-
+                var searchResult;
+                this.productDatabaseService.getProductByTitle(searchbarSubstring).then(searchResult => {
+                    if (searchResult) {
+                        console.log(searchResult);
                     }
                 });
-
+                
                 const searchbarContent = new SearchbarContent(navigatePage);
                 searchbarContent.render('#content');
             });

@@ -9,7 +9,7 @@ class Loading {
             $('body').addClass('active');
             $('.navbar a').on('click', (e) => {
                 this.navigateTo(e.target.id);
-                if (this.onClickCallback){
+                if (this.onClickCallback) {
                     this.onClickCallback(e.target.id);
                     $('body').removeClass('active');
                 }

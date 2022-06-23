@@ -11,10 +11,6 @@ html {
 }
 
 .active-login {
-    /* background-image grey blue */
-    /* background-image: radial-gradient(circle farthest-corner at center, #999 0%, #0155a3 100%); */
-
-    /* background-image blue */
     background-image: radial-gradient(circle farthest-corner at center, #0155a3 0%, #0155a3 100%);
 }
 

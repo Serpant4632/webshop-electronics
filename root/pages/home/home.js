@@ -8,14 +8,13 @@ class Home extends Page {
         this.onClickCallback = onClickCallback;
     }
 
-
     render(parentSelector) {
         $(parentSelector).load('./pages/home/home.html', () => {
             this.loadCarouselCardProducts().then((products) => {
                 this.renderCarouselCards(products);
 
                 $('.product-item').on('click', (e) => {
-                    if (this.onClickCallback){
+                    if (this.onClickCallback) {
                         this.onClickCallback('productPage', e.currentTarget.id);
                     }
                 })
@@ -29,7 +28,6 @@ class Home extends Page {
         const allProducts = await this.productDatabaseService.getAllProducts();
         return this.getRandom(allProducts, 20);
     }
-
 
     renderCarouselCards(products) {
         const productsCarousel = $('#products-carousel');

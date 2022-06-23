@@ -11,11 +11,6 @@ class Categories {
 
     render(parentSelector) {
         $(parentSelector).load('./components/categories/categories.html', () => {
-            // $('.nav-item').on('click', (e) => {
-            //     console.log(`${e.currentTarget.id} was clicked`);
-            //     if (this.onClickCallback)
-            //         this.onClickCallback(e.currentTarget.id);
-            // });
             this.loadCategoryData();
             this.setupListeners();
 

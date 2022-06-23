@@ -20,7 +20,7 @@ class OrderDatabaseService {
 
     async getOrdersByCustomerId(customerID) {
         const response = await fetch(`${this.baseUrl}?customerID=${customerID}`);
-        
+
         let result = [];
         if (response.status != '200') {
             return null;

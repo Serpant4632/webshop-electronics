@@ -1,6 +1,5 @@
 button.carousel-control-next, button.carousel-control-prev {
     width: 5%;
-    /* filter: invert(100%); */
 }
 
 span.carousel-control-next-icon, span.carousel-control-prev-icon {
@@ -11,7 +10,6 @@ span.carousel-control-next-icon, span.carousel-control-prev-icon {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     border-radius: 10px;
-
 }
 
 button.carousel-control-prev, button.carousel-control-next {
@@ -19,11 +17,8 @@ height: fit-content;
 top: 45%;
 }
 
-
-
 div.brand-background {
     background-color: #F4F4F4;
-
 }
 
 .brand-card {
@@ -63,7 +58,6 @@ div.card.btn {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-
 }
 
 .carousel-card .card-img-top{

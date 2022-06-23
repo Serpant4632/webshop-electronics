@@ -1,5 +1,5 @@
 class ProductDatabaseService {
-    
+
     baseUrl = 'http://localhost/backend-webshop-electronics/api/product_database.php';
 
     constructor() {
@@ -19,15 +19,15 @@ class ProductDatabaseService {
     }
 
     async getProductByTitle(title) {
-        return fetch(`${this.baseUrl}?title=${title}`).then(async(res) => {
+        return fetch(`${this.baseUrl}?title=${title}`).then(async (res) => {
             const result = await res.json();
             return result;
         }).catch((error) => {
             return null;
         });
-        
+
     }
-    
+
     async getCategories() {
         const response = await fetch(`${this.baseUrl}?category`);
         const resJson = await response.json();
