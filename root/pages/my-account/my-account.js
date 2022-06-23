@@ -19,7 +19,9 @@ class MyAccount extends Page {
                     this.onClickCallback(e.currentTarget.id);
             });
 
-            const data = sessionStorage.getItem('customerID')
+            const data = sessionStorage.getItem('customerID');
+            let blocked;
+            let appendedOrders;
             if (data) {
                 this.loadUsrData(data).then(() => {
                     $('#usr-account-nr').html('Kunden Nr. : ' + this.usr.id);
@@ -31,9 +33,25 @@ class MyAccount extends Page {
 
                 this.loadOrderData(data).then((orders) => {
                     $('#customer-number').html('Kunden Nr. : ' + this.usr.id);
-                    this.order.forEach((cat, index) => {
-                        $('#order-table').append(`<tr><td class="column-heading-wide">${cat['productID']}</td><td class="column-heading-wide-2">${cat['title']}</td><td class="column-heading-wide">${cat['quantity']}</td><td class="column-heading-wide">${cat['date']}</td></tr>`);
-                    });
+                    if (true == blocked) {
+                        if (this.order.length != appendedOrders) {
+                            $('#order-table').remove();
+                            blocked = false;
+                        }
+                        else {
+                            blocked == true;
+                        }
+                    }
+                    else {
+                        this.order.forEach((cat, index) => {
+                            $('#order-table').append(`<tr><td class="column-heading-wide">${cat['productID']}</td><td class="column-heading-wide-2">${cat['title']}</td><td class="column-heading-wide">${cat['quantity']}</td><td class="column-heading-wide">${cat['date']}</td></tr>`);
+                        });
+                        appendedOrders = this.order.length;
+                        console.log(appendedOrders);
+                        blocked = true;
+                        console.log(blocked);
+                    }
+                    
                 });
             }
         });
