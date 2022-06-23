@@ -112,7 +112,7 @@ class ShoppingCart extends Page {
                 totalQuantity += parseFloat(p.quantity);
             });
             console.log('inshoppingCart');
-            this.totalCosts = (Number(totalPriceOfSC.toFixed(2)) + Number(4.90)).toString().replace('.', ',');
+            this.totalCosts = (Number(totalPriceOfSC.toFixed(2)) + Number(5)).toString().replace('.', ',');
             const strTotalPriceOfSC = totalPriceOfSC.toFixed(2).replace('.', ',');
 
             this.subtotalCosts = strTotalPriceOfSC;
