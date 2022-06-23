@@ -51,18 +51,11 @@ class Navigation {
             this.renderNavShoppingCart();
 
             const searchbar = $('#sSearch');
-            searchbar.on('input', (e) => {
-                const searchbarSubstring = e.target.value;
-                var searchResult;
-                this.productDatabaseService.getProductByTitle(searchbarSubstring).then(searchResult => {
-                    if (searchResult) {
-                        console.log(searchResult);
-                    }
-                });
-                
+            searchbar.on('click', (e) => {
                 const searchbarContent = new SearchbarContent(navigatePage);
                 searchbarContent.render('#content');
-            });
+            })
+
         });
     }
 
