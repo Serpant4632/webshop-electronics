@@ -15,32 +15,29 @@ class SearchbarContent {
                 console.log(`${e.currentTarget.id} was clicked`);
                 if (this.onClickCallback)
                     this.onClickCallback(e.currentTarget.id);
-
-
             });
             const searchbar = $('#sSearch');
-            searchbar.on('input', (e) => {
+            searchbar.on('keyup', (e) => {
                 const searchbarSubstring = e.target.value;
                 var searchResult;
                 this.productDatabaseService.getProductByTitle(searchbarSubstring).then(searchResult => {
                     if (searchResult) {
-                        console.log(searchResult);
                     }
                     searchResult.forEach((value, index) => {
-                        console.log(value.id);
-                        this.productDatabaseService.getProductById(value.id).then(product => {
-                            console.log(product);
-                            
-                            const productsSearchItem = $('#section-shop-container .col-sm-8');
-                            productsSearchItem.clone().appendTo(productsSearchItem);
-                            const productsCards = productsSearchItem.find('.card');
-                            
-                            $(this).find('img').attr('src', `${imagesPath}${products[index].id}.jpeg`);
-                            console.log(this.products[index].id);
-                            $(this).find('.card-title').text(products[index].title);
-                            console.log(this.products[index].title);
-                            $(this).find('.card-text').text(products[index].description);
-                            console.log(this.products[index].description);
+
+                        this.productDatabaseService.getProductById(value.id).then(products => {
+
+                            const productsPage = $('#firstproduct .productgroup');
+                            productsPage.clone().removeAttr('hidden').appendTo('#moreproducts');
+                            const productsResult = productsPage.find('.product');;
+                            console.log(productsResult);
+
+                            productsResult.each(function () {
+                                console.log(products.id);
+                                $(this).find('pruduct-img').prop('src', `${imagesPath}${products.id}.jpeg`);
+                                $(this).find('.product-title').text(products.title);
+                            });
+
                         });
                     });
                 });
