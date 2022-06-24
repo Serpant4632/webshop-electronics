@@ -6,7 +6,6 @@ class SearchbarContent {
     constructor(onClickCallback) {
         this.onClickCallback = onClickCallback;
         this.productDatabaseService = new ProductDatabaseService();
-
     }
 
     render(parentSelector) {
@@ -16,33 +15,45 @@ class SearchbarContent {
                 if (this.onClickCallback)
                     this.onClickCallback(e.currentTarget.id);
             });
+
+            // take searchbar Substring and show possible results
             const searchbar = $('#sSearch');
-            searchbar.on('keyup', (e) => {
+            searchbar.on('input', (e) => {
+                $('.productgroup').remove();
                 const searchbarSubstring = e.target.value;
                 var searchResult;
                 this.productDatabaseService.getProductByTitle(searchbarSubstring).then(searchResult => {
                     if (searchResult) {
                     }
-                    searchResult.forEach((value, index) => {
 
-                        this.productDatabaseService.getProductById(value.id).then(products => {
-
-                            const productsPage = $('#firstproduct .productgroup');
-                            productsPage.clone().removeAttr('hidden').appendTo('#moreproducts');
-                            const productsResult = productsPage.find('.product');;
-                            console.log(productsResult);
-
-                            productsResult.each(function () {
-                                console.log(products.id);
-                                $(this).find('pruduct-img').prop('src', `${imagesPath}${products.id}.jpeg`);
-                                $(this).find('.product-title').text(products.title);
-                            });
-
+                    if (searchResult === null) {
+                        $('.section-title').html('Ihre Suchanfrage liefert leider keine Treffer.');
+                    } else {
+                        $('.section-title').html('');
+                        searchResult.forEach((value, index) => {
+                            $('#moreproducts').append(`<div class="productgroup" id="${value.id}">
+                        <div class="product-body">
+                        <table>
+                        <tr>
+                            <th><img src="/resources/images/image-${value.id}.jpeg" class="product-img" alt=""></th>
+                            <th><h4 class="product-title" id="product-title-${index}">${value.title}</h4></th>
+                        </tr>
+                        </table>  
+                        </div>
+                        <hr>
+                        </div>`);
                         });
-                    });
+
+                        $('.productgroup').on('click', (e) => {
+                            if (this.onClickCallback) {
+                                this.onClickCallback('productPage', e.currentTarget.id);
+                            }
+                        })
+                    }
                 });
             });
         });
     };
-}
+};
+
 
